@@ -1,0 +1,26 @@
+h1 {
+  color: green;
+}
+
+nav {
+  float: right;
+  background: #333333;
+}
+
+h3 {
+  text-align: center;
+}
+
+body {
+  padding: 10%;
+  font-family:consolas, courier;
+  background-image: url("topography.png");
+}
+
+#my-title {
+  color: #D81B60;
+  font-size: 90%;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Kirang Haerang', cursive;
+}
