@@ -16,7 +16,7 @@ public class FizzBuzz {
                 System.out.println("Buzz"); // when the number can be divided by 5 without a remainder but not by 3
             }
             else if ((i % 3 == 0) && (i % 5 == 0)){
-                System.out.println("FizzBuzz"); when the number can be divided by both 3 and 5 without a remainder 
+                System.out.println("FizzBuzz"); // when the number can be divided by both 3 and 5 without a remainder 
             }
         }
     }
