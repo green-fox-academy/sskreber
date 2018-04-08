@@ -8,4 +8,4 @@ http://github.com/sskreber/hello-world-GitPrac
 http://github.com/sskreber/patchwork
 
 A link to my current/ongoing work folder of the week: 
-https://github.com/sskreber/week01/day-02
+https://github.com/sskreber/week-01/day-02
