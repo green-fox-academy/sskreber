@@ -10,7 +10,8 @@ public class GuessTheNumber {
         // The stried number is lower
         // You found the number: 8
 
-        int numberToGuess = (int) (Math.random() * 20 + 1); // randomly generates a number between 1 and 20
+        int numberToGuess = (int) (Math.random() * 20 + 1); // randomly generates a number between 1 and 20,
+	// and stores it as the number to guess.
 
         Scanner scanner = new Scanner(System.in);
         int userGuess = scanner.nextInt();
