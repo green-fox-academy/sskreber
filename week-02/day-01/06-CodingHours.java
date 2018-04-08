@@ -22,7 +22,7 @@ public class CodingHours {
 
         System.out.println("Percentage of coding hours per semester: " + percentageCodingHours + "%");
 
-        // Solving is using mathematical operations, without declaring variables:
+        // Solving it using mathematical operations, without declaring variables:
         System.out.println("SOLUTION 2: without declaring variables");
         System.out.println("An attendee's sum of hours spent by coding per semester: " + 17 * 5 * 6 + " hours");
         System.out.println("Percentage of coding hours per semester: " + (int) ((17 * 5 * 6) / (17 * 52.) * 100) + "%");
