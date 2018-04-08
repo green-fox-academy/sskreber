@@ -20,7 +20,6 @@ public class PartyIndicator {
         Scanner scanner = new Scanner(System.in);
         int inputNumber1 = scanner.nextInt();
 
-//        Scanner scanner = new Scanner(System.in);
         int inputNumber2 = scanner.nextInt();
 
         if ((inputNumber1 == inputNumber2) && (inputNumber1 + inputNumber2 > 20)) {
