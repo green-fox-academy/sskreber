@@ -7,16 +7,16 @@ public class FizzBuzz {
 
         for (int i = 1; i <= 100; i++){
             if ((i % 3 != 0) && (i % 5 != 0)) {
-                System.out.println(i);
+                System.out.println(i); // when a number has neither 3 nor 5 as its divider.
             }
             else if ((i % 3 == 0) && (i % 5 != 0)){
-                System.out.println("Fizz");
+                System.out.println("Fizz"); // when the number can be divided by 3 without a remainder but not by 5
             }
             else if ((i % 5 == 0) && (i % 3 != 0)){
-                System.out.println("Buzz");
+                System.out.println("Buzz"); // when the number can be divided by 5 without a remainder but not by 3
             }
             else if ((i % 3 == 0) && (i % 5 == 0)){
-                System.out.println("FizzBuzz");
+                System.out.println("FizzBuzz"); when the number can be divided by both 3 and 5 without a remainder 
             }
         }
     }
