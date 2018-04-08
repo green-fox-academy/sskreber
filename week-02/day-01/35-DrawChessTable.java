@@ -28,8 +28,5 @@ public class DrawChessTable {
                 System.out.println(lineVariation2);
             }
         }
-
-
-
     }
 }
