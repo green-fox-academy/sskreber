@@ -7,3 +7,5 @@ http://github.com/sskreber/git-lesson-repository
 http://github.com/sskreber/hello-world-GitPrac
 http://github.com/sskreber/patchwork
 
+A link to my current/ongoing work folder of the week: 
+https://github.com/sskreber/week01/day-02
