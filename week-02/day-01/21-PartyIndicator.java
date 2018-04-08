@@ -19,14 +19,13 @@ public class PartyIndicator {
 
         Scanner scanner = new Scanner(System.in);
         int inputNumber1 = scanner.nextInt();
-
         int inputNumber2 = scanner.nextInt();
 
         if ((inputNumber1 == inputNumber2) && (inputNumber1 + inputNumber2 > 20)) {
             System.out.println("The party is excellent!");
         } else if ((inputNumber1 != inputNumber2) && (inputNumber1 + inputNumber2 > 20)) {
             // Mind you, the quite a cool party condition will also check true if 0 girls are coming but there are more than 20 guys!
-            // (Because the 0:100 ratio is NOT 1:1 either...)
+            // (Because a 0:100 ratio, for example, is NOT 1:1 either...)
             System.out.println("Quite a cool party!");
         } else if (inputNumber1 + inputNumber2 < 20) {
             System.out.println("Average party...");
