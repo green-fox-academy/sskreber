@@ -9,3 +9,7 @@ http://github.com/sskreber/patchwork
 
 A link to my current/ongoing work folder of the week: 
 https://github.com/greenfox-academy/sskreber/tree/master/week-01/day-02
+
+A link to my practice website (content and style - html and css - in 
+progress):
+https://sskreber.github.io
