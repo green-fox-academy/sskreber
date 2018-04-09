@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AnimalsAndLegs {
+public class AverageOfInput{
     public static void main(String[] args) {
 
         // Write a program that asks for 5 integers in a row,
