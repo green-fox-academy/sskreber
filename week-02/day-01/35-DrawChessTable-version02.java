@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DrawPyramid {
+public class DrawChessTable {
     public static void main(String[] args) {
 
         // Create a program that draws a chess table like this
