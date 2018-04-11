@@ -11,6 +11,5 @@ public class SimpleReplace {
 
         System.out.println(example);
     }
-
 	// The problem was in the main method's parameters, String had full stops after it instead of []
 }
