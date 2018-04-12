@@ -13,7 +13,7 @@ public class DrawChessTable {
         //  % % % %
         //
 
-        /* zsu_karap: I take it it should be a pre-defined 8*8 chess table, since task hasn't mentioned prompting user
+        /* sskreber: I take it it should be a pre-defined 8*8 chess table, since task hasn't mentioned prompting user
         to enter a number to get a parameter.
         */
 
