@@ -13,6 +13,7 @@ public class Reverse {
     /* SOLUTION 1: using StringBuilder and charAt(), looking up input's characters in reverse one by one, adding them
     to a StringBuilder object, casting that result as a String and rewriting input's content with it.
     */
+
     public static String reverse(String stringToReverse) {
 
         int reversedLength = stringToReverse.length();
