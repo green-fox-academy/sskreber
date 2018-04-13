@@ -15,7 +15,7 @@ public class DrawChessTable {
         //  % % % %
         //
 
-        /* zsu_karap: In this solution version I shall endeavour to create a pyramid of ANY length based on user input. Yaaay.
+        /* sskreber: In this solution version I shall endeavour to create a pyramid of ANY length based on user input. Yaaay.
          */
 
         Scanner scanner = new Scanner(System.in);
