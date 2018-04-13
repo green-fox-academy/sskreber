@@ -14,8 +14,8 @@ public class QuoteSwap {
         // Expected output: "What I cannot create I do not understand."
     }
 
-    /* SOLUTION 1: works, but if we call System.out.println on the method in THIS solution, it will, besides its within-method commanded full quote,
-    print the quote as a list, with its members separated by commas each.
+    /* SOLUTION 1: works, but if we call System.out.println on the method in THIS solution, it will, 
+    besides its within-method commanded full quote, print the quote as a list, with its members separated by commas each.
     Solution to that: don't call 'System.out.println(quoteSwap(list));' call 'quoteSwap(list);' instead.
      */
 
