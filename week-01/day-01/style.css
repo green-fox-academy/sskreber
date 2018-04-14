@@ -1,26 +1,92 @@
-h1 {
-  color: green;
+
+.menu{
+  background: #333333;
+  width: 100%;
+  height: 50px;
+  display: block;
 }
 
-nav {
-  float: right;
-  background: #333333;
+.menu ul{
+    margin: 0px auto;
+    width: 800px;
+    padding: 50% 20% 20% 20; 
+    text-transform: uppercase;
+}
+
+.menu li{
+    list-style: none; 
+    float: right;
+    margin: 5px auto;
+    padding-left: 2%;
+}
+
+.menu a{
+  font-size: 20px;
+  color: #ff0099;
+}
+
+.menu a:hover{
+  color: lightpink;
+}
+
+#logo {
+  position: absolute;
+  padding-left: 20%;
+  left:0;
+  top:0;
+}
+
+.dots{
+  text-align: center;
+  color: grey;
+  font-size: 25px;
+  padding: 15px;
+  margin: 0px;
+}   
+
+h1 {
+  color: green;
+  font-size: 250%;
+}
+
+.main-text{
+  font-style: 20px;
+    margin: 10px auto;
+    text-align: left;
+    width: 80%;
+    padding: 2% 10% 10% 10;
 }
 
 h3 {
   text-align: center;
+  font-size: 160%;
 }
 
 body {
-  padding: 10%;
-  font-family:consolas, courier;
+  font-family: consolas, courier, monospace;
+  text-align: left;
+  margin: 0px auto;
   background-image: url("topography.png");
+  padding: 0px;
+  padding-bottom: 10%;
+  font-style: 20px;
+  width: 100%;
 }
 
 #my-title {
-  color: #D81B60;
-  font-size: 90%;
+  color: #ff0099;
+  font-size: 125%;
 }
+
+#instruction-set {
+  padding: 15px;
+}
+
+#instruction-set h5{
+  font-size: 110%;
+}
+
 h1, h2, h3, h4, h5 {
-  font-family: 'Kirang Haerang', cursive;
+  font-family: 'Merriweather', serif;
+  font-family: 'Roboto', sans-serif;
 }
