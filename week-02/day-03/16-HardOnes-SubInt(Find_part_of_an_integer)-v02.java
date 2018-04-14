@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 /* sskreber: In this solution version, both the number and the int[] parameters
 of the SubInt function are created by prompting the user to type them in.
+*/
 
 public class SubInt{
     public static void main(String[] args) {
