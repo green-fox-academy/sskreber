@@ -35,11 +35,11 @@ public class Printer {
 }
 
 /* SOLUTION 2 - using any number of String arguments. Downside: it's not user input it takes in,
-        but words typed into the main method.
-        TBC: how to set a scanner that keeps taking user input
-        (word, enter, ... repeat) until user decides to stop inputting?
-        In sum: how to programmatically stop scanner from running?
-         */
+but words typed into the main method.
+TBC: how to set a scanner that keeps taking user input
+(word, enter, ... repeat) until user decides to stop inputting?
+In sum: how to programmatically stop scanner from running?
+*/
 
 public class Printer {
 
