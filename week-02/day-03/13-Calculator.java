@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Calculator {
+public class Printer {
     public static void main(String... args) {
         // Create a simple calculator application which reads the parameters from the prompt
         // and prints the result to the prompt.
@@ -34,16 +34,12 @@ public class Calculator {
         userInputArrayList.addAll(Arrays.asList(userInput.charAt(0), userInput.charAt(2), userInput.charAt(4)));
 
         String tmp = (String) userInputArrayList.get(0).toString();
-        System.out.println("This is tmp: " + tmp);
 
         userInputArrayList.set(0, userInputArrayList.get(1)); //
         userInputArrayList.set(1, tmp);
 
-        System.out.println("This is the array list: " + userInputArrayList); // to check
-
         int inputNumber1 = Integer.parseInt(userInputArrayList.get(0).toString());
         int inputNumber2 = Integer.parseInt(userInputArrayList.get(2).toString());
-        System.out.println("These are the inputNumbers: " + inputNumber1 + " , " + inputNumber2);
 
         if (tmp.equals("+")) {
             result = inputNumber1 + inputNumber2;
