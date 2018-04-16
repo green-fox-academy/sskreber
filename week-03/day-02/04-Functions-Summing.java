@@ -18,38 +18,3 @@ public class Summing {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter a whole number: ");
         int inputNumber = scanner.nextInt();  // this user-given number is going to be our parameter
-        System.out.println(sum(inputNumber));
-    }
-
-    public static int sum(int userInPutNumber) {
-        int sum = 0;
-        for (int i = 0; i < userInPutNumber; i++) {     // to INCLUDE the user-given parameter in the sum, use i < userInPutNumber + 1
-            sum += i;
-        }
-        return sum;
-    }
-}
-
-
-// SOLUTION 2 - with a double input number. Returns the sum until input's rounded int value.
-
-public class Summing {
-
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter a number: ");
-        double inputNumber = scanner.nextDouble();  // this user-given number is going to be our parameter
-        System.out.println(sum(inputNumber));
-    }
-
-    public static int sum(double userInPutNumber) {
-        userInPutNumber = (int) Math.round(userInPutNumber);
-        System.out.println("rounded value: " + userInPutNumber);
-        int sum = 0;
-        for (int i = 0; i < userInPutNumber; i++) {     // to INCLUDE the user-given parameter in the sum, use i < userInPutNumber + 1
-            sum += i;
-        }
-        return sum;
-    }
-}
