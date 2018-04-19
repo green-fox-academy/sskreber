@@ -16,8 +16,6 @@ public class Drawing {
         for (int i = 0; i < 3; i++) {
             x1 = (int) (Math.random() * (WIDTH + 1));
             y1 = (int) (Math.random() * (HEIGHT + 1));
-            System.out.println("This is x1: " + x1);
-            System.out.println("This is y1: " + y1);
             goToCenter(graphics, x1, y1);
         }
     }
