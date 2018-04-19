@@ -9,8 +9,6 @@
 
 import java.util.Scanner;
 
-// SOLUTION 1 - with an int input number
-
 public class Summing {
 
     public static void main(String[] args) {
@@ -18,3 +16,14 @@ public class Summing {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter a whole number: ");
         int inputNumber = scanner.nextInt();  // this user-given number is going to be our parameter
+        System.out.println(sum(inputNumber));
+    }
+
+    private static int sum(int inputNumber) {
+        int sum = 0;
+        for (int i = 0; i < inputNumber; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+}
