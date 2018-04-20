@@ -6,13 +6,13 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Drawing {
 
     public static void mainDraw(Graphics graphics) {
-        // create a square drawing function that takes 2 parameters:
-        // the x and y coordinates of the square's top left corner
-        // and draws a 50x50 square from that point.
+        // create a square drawing function that takes 1 parameter:
+        // the square size
+        // and draws a square of that size to the center of the canvas.
         // draw 3 squares with that function.
         // avoid code duplication.
 
-        /* sskreber: TBC: don't know how to NOT pass graphcis as a parameter to the new method,
+        /* sskreber: TBC: don't know how to NOT pass graphics as a parameter to the new method,
         as far as I see no drawing method can function without receiving a Graphics argument
         (won't recognise graphics.setColor(), graphics.drawRect(), etc otherwise).
          */
