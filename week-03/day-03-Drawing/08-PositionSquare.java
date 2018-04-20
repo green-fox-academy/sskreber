@@ -11,22 +11,21 @@ public class Drawing {
         // and draws a 50x50 square from that point.
         // draw 3 squares with that function.
         // avoid code duplication.
-        
-        /* sskreber: TBC: don't know how to NOT pass graphics as a parameter to the new method, 
+
+        /* sskreber: TBC: don't know how to NOT pass graphics as a parameter to the new method,
         as far as I see no drawing method can function without receiving a Graphics argument
         (won't recognise graphics.setColor(), graphics.drawRect(), etc otherwise).
          */
 
         for (int i = 0; i < 3; i++) {
-            int squareX = (int) (Math.random() * (WIDTH + 1));
-            int squareY = (int) (Math.random() * (HEIGHT + 1));
+            int squareX = (int) (Math.random() * (WIDTH - 50));
+            int squareY = (int) (Math.random() * (HEIGHT - 50));
             positionSquare(graphics, squareX, squareY);
         }
     }
 
     public static void positionSquare(Graphics graphics, int squareX, int squareY) {
-        int rectWidthHeight = 1 + (int) (Math.random() * (WIDTH));
-        graphics.drawRect(squareX, squareY, rectWidthHeight, rectWidthHeight);
+        graphics.drawRect(squareX, squareY, 50, 50);
     }
 
     //    Don't touch the code below
