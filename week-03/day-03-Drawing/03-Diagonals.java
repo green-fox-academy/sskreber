@@ -16,7 +16,7 @@ public class Drawing {
         graphics.drawLine(0, HEIGHT, WIDTH / 2, HEIGHT / 2);
 
         graphics.setColor(Color.RED);
-        graphics.drawLine(WIDTH / 2, HEIGHT / 2, WIDTH, 02);
+        graphics.drawLine(WIDTH / 2, HEIGHT / 2, WIDTH, 0);
 
         graphics.setColor(Color.RED);
         graphics.drawLine(WIDTH / 2, HEIGHT / 2, WIDTH, HEIGHT);
