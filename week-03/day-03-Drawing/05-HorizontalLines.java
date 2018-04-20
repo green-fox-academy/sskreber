@@ -10,12 +10,12 @@ public class Drawing {
         // The x and y coordinates of the line's starting point
         // and draws a 50 long horizontal line from that point.
         // Draw 3 lines with that function. Use loop for that.
-        
+
         int x1 = 0;
         int y1 = 0;
         for (int i = 0; i < 3; i++) {
-            x1 = (int) (Math.random() * (WIDTH + 1));
-            y1 = (int) (Math.random() * (HEIGHT + 1));
+            x1 = (int) (Math.random() * (WIDTH - 50)); // -50 added so line doesn't go out of the panel if x is big
+            y1 = (int) (Math.random() * (HEIGHT - 50)); // -50 added so line doesn't go out of the panel if y is big
             goToCenter(graphics, x1, y1);
         }
     }
