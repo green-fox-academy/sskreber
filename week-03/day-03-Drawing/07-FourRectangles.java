@@ -25,10 +25,14 @@ public class Drawing {
             } else {
                 graphics.setColor(Color.BLACK);
             }
-            int rectX = (int) (Math.random() * (WIDTH));
-            int rectY = (int) (Math.random() * (HEIGHT));
+
             int rectWidth = 1 + (int) (Math.random() * (WIDTH));
             int rectHeight = 1 + (int) (Math.random() * (HEIGHT));
+            // minus rectWidth added to avoid the rect squeezing out of the panel's width with a too big x for its width
+            int rectX = (int) (Math.random() * (WIDTH - rectWidth));
+            // minus rectHeight added to avoid the rect squeezing out of the panel's height with a too big y for its height
+            int rectY = (int) (Math.random() * (HEIGHT - rectHeight));
+            
             graphics.drawRect(rectX, rectY, rectWidth, rectHeight);
         }
     }
@@ -53,4 +57,3 @@ public class Drawing {
             mainDraw(graphics);
         }
     }
-}
