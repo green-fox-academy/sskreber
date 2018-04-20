@@ -27,8 +27,8 @@ public class Drawing {
             }
             int rectX = (int) (Math.random() * (WIDTH));
             int rectY = (int) (Math.random() * (HEIGHT));
-            int rectWidth = (int) (Math.random() * (WIDTH));
-            int rectHeight = (int) (Math.random() * (HEIGHT));
+            int rectWidth = 1 + (int) (Math.random() * (WIDTH));
+            int rectHeight = 1 + (int) (Math.random() * (HEIGHT));
             graphics.drawRect(rectX, rectY, rectWidth, rectHeight);
         }
     }
