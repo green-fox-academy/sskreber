@@ -5,7 +5,7 @@ The program should ask for a number. E.g. if we type 371, the program should pri
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Armstrong-number {
+public class ArmstrongNumber {
 
     public static void main(String[] args) {
 
