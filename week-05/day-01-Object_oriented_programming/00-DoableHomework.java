@@ -19,5 +19,4 @@ public class DoableHomework {
         ArrayList<String> cocconutTree = new ArrayList<>(Arrays.asList("cocconut tree", "fresh green", "2 years", "female"));
         ArrayList<String> cherryTree = new ArrayList<>(Arrays.asList("cherry tree", "light pink", "1 year", "unisex"));
     }
-
 }
