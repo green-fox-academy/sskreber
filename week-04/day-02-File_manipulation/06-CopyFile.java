@@ -17,7 +17,7 @@ public class CopyFile {
         try {
             Path pathInto = Paths.get(fileName1);
             Path pathCopyFrom = Paths.get(fileName2);
-            Files.copy(pathCopyFrom, pathInto);
+            Files.copy(pathCopyFrom, pathInto, REPLACE_EXISTING);
             isCopySuccessful = true;
             System.out.println(isCopySuccessful);
 
