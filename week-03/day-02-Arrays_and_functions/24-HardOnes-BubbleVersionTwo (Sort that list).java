@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class Bubble {
+public class BubbleVersionTwo {
     public static void main(String[] args) {
         //  Create a function that takes a list of numbers as parameter
         //  Returns a list where the elements are sorted in ascending numerical order
@@ -13,27 +14,12 @@ public class Bubble {
     }
 
     public static ArrayList<Integer> bubble(int[] listOfNumbers) {
-        ArrayList<Integer> sortingListTemporary = new ArrayList<>();
+        int[] listOfNumbersCopy = Arrays.copyOf(listOfNumbers, listOfNumbers.length);
+        Arrays.sort(listOfNumbersCopy);
         ArrayList<Integer> sortedList = new ArrayList<>();
 
-        for (int number : listOfNumbers) {
-            sortingListTemporary.add(number);
-        }
-
-        int smallerNumber = 0;
-
-        while (sortingListTemporary.size() > 0) {
-            for (int i = 0; i < sortingListTemporary.size(); i++) {
-                if (sortingListTemporary.get(0) <= sortingListTemporary.get(i)) {
-                    smallerNumber = sortingListTemporary.get(0);
-                }
-                if ((sortingListTemporary.get(i) <= smallerNumber && sortingListTemporary.contains(smallerNumber))
-                        || !(sortingListTemporary.contains(smallerNumber))) {
-                    smallerNumber = sortingListTemporary.get(i);  //otherwise smallerNumber stays the same for the next for loop
-                }
-            }
-            sortedList.add(smallerNumber);
-            sortingListTemporary.remove(sortingListTemporary.indexOf(smallerNumber));
+        for (int number : listOfNumbersCopy) {
+            sortedList.add(number);
         }
         return sortedList;
     }
@@ -51,4 +37,4 @@ public class Bubble {
         }
     }
 }
- 
+     
