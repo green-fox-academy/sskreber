@@ -10,7 +10,7 @@
 public class Colors {
 
     public static void main(String[] args) {
-        String[][] multiArrayColours = new String[5][5];
+        String[][] multiArrayColours = new String[3][5];
         String[] rowZeroOfColours = {"lime", "forest green", "olive", "pale green", "spring green"};
         String[] rowOneOfColours = {"orange red", "red", "tomato"};
         String[] rowTwoOfColours = {"orchid", "violet", "pink", "hot pink"};
