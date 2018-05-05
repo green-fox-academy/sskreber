@@ -10,6 +10,13 @@ public class Animal {
     int hunger = 50;
     int thirst = 50;
 
+    public Animal() {
+    }
+
+    public Animal(Farm farmName) {
+        farmName.animals.add(this);
+    }
+
     public void eat() {
         hunger--;
     }
@@ -23,3 +30,4 @@ public class Animal {
         this.thirst++;
     }
 }
+
