@@ -1,4 +1,4 @@
-//Create a Student class that has the same fields and methods as the Person class, and has the following additional
+﻿//Create a Student class that has the same fields and methods as the Person class, and has the following additional
 //
 //        fields:
 //        previousOrganization: the name of the student’s previous company / school
@@ -44,3 +44,5 @@ public class Student extends Person {
         this.skippedDays = 0;
     }
 }
+
+

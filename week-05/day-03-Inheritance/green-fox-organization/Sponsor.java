@@ -30,3 +30,4 @@ public class Sponsor extends Person {
         this.hiredStudents = 0;
     }
 }
+
