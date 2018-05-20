@@ -2,7 +2,7 @@
 
 import java.util.stream.Collectors;
 
-public class Exercise9 {
+public class Exercise09 {
     public static void main(String[] args) {
         char[] charArray = {'g', 'o', 'o', 'd', 'i', 'e'};
 

@@ -1,17 +1,19 @@
-//Write a Stream Expression to get the even numbers from the following array:
+//Write a Stream Expression to get the squared value of the positive numbers from the following array:
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Exercise1 {
-
+public class Exercise03 {
     public static void main(String[] args) {
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14));
-        List<Integer> evenNumbers = numbers.stream()
-                .filter(n -> n % 2 == 0)
+        List<Double> sqValue = numbers.stream()
+                .filter(n -> n >= 0)
+                .map(n -> Math.pow(n, 2))
                 .collect(Collectors.toList());
-        System.out.println(evenNumbers);
+
+        System.out.println(sqValue);
     }
 }
 

@@ -3,7 +3,7 @@
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Exercise5 {
+public class Exercise05 {
     public static void main(String[] args) {
 
         String whateverWord = "jhbjhTZHgbnGhThfzgR";
