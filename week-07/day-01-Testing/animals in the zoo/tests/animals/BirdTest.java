@@ -70,6 +70,5 @@ public class BirdTest {
         expectedValue = "A is breeding by pushing miniature versions out.";
         actualValue = ("A " + bird.getName() + " is breeding by " + bird.breed());
     }
-
 }
 
