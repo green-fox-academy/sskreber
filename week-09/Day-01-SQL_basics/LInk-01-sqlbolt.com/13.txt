@@ -11,4 +11,3 @@ INSERT INTO Movies (Title, Director, year)
 INSERT INTO Boxoffice (Movie_id, Rating, Domestic_sales, International_sales)
     VALUES ("15", 8.7, 340000000, 270000000);
 
-

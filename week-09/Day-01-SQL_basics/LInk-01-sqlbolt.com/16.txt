@@ -6,13 +6,9 @@
 **/ This table has no constraints.
 
 CREATE TABLE IF NOT EXISTS Database (
-    
 	Id INTEGER PRIMARY KEY,
-    
 	Name TEXT,
-    
 	Version FLOAT,
-    
 	Download_count INTEGER
-
 );
+

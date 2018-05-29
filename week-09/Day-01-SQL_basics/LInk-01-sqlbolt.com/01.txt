@@ -17,3 +17,4 @@ SELECT Title, Director FROM movies;
 SELECT Title, Year FROM movies;
 5.
 SELECT * FROM movies;
+
