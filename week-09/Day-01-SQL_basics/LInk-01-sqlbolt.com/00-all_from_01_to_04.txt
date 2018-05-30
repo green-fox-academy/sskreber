@@ -4,7 +4,7 @@
 * Find the director of each film 
 * Find the title and director of each film 
 * Find the title and year of each film 
-**/ Find all the information about each film 
+*/ Find all the information about each film 
 
 1.
 SELECT title FROM movies;
@@ -24,7 +24,7 @@ SELECT * FROM movies;
 * Find the movies released in the years between 2000 and 2010
 * Find the movies not released in the years between 2000 and
 * 2010
-**/ Find the first 5 Pixar movies and their release  year
+*/ Find the first 5 Pixar movies and their release  year
 
 1.
 SELECT * FROM movies WHERE Id = 6; 
@@ -44,7 +44,7 @@ SELECT Title, Year FROM movies WHERE Id BETWEEN 1 AND 5;
 * Find all the movies directed by John Lasseter
 * Find all the movies (and director) not directed by John 
 * Lasseter
-**/ Find all the WALL-* movies
+*/ Find all the WALL-* movies
 
 1.
 SELECT * FROM movies WHERE Title LIKE "%Toy Story%";
@@ -62,7 +62,7 @@ SELECT * FROM movies WHERE Title LIKE "Wall-%";
 * List the last four Pixar movies released (ordered from most 
 * recent to least)
 * List the first five Pixar movies sorted alphabetically
-**/ List the next five Pixar movies sorted alphabetically
+*/ List the next five Pixar movies sorted alphabetically
 
 1.
 SELECT DISTINCT Director FROM movies ORDER BY Director ASC;

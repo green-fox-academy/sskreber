@@ -1,0 +1,33 @@
+// Q6 DRAFT, DOESN'T WORK!
+
+SELECT Reviewer.name, Movie.title
+FROM Reviewer, Movie, Rating
+WHERE Reviewer.rID = Rating.rID AND Movie.mID = Rating.mID
+AND NEXT VALUE FOR Rating.stars > NEXT VALUE FOR Rating.stars
+GROUP BY Reviewer.rID;
+
+// Q7
+// For each movie that has at least one rating, find the highest // number of stars that movie received. Return the movie title // and number of stars. Sort by movie title. 
+
+SELECT Movie.title, Rating.stars
+FROM Movie
+LEFT JOIN Rating
+WHERE Movie.mID = Rating.mID
+AND Rating.stars IS NOT null
+GROUP BY Movie.title;
+
+// Q8
+// For each movie, return the title and the 'rating spread', 
+// that is, the difference between highest and lowest ratings 
+// given to that movie. Sort by rating spread from highest to 
+// lowest, then by movie title. 
+
+SELECT Movie.title, MAX(Rating.stars) - MIN(Rating.stars) AS Spread
+FROM Movie
+LEFT JOIN Rating
+WHERE Movie.mID = Rating.mID
+GROUP BY Movie.title
+ORDER BY Spread DESC;
+
+
+

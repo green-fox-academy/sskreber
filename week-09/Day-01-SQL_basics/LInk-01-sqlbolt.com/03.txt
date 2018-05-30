@@ -3,7 +3,7 @@
 * Find all the movies directed by John Lasseter
 * Find all the movies (and director) not directed by John 
 * Lasseter
-**/ Find all the WALL-* movies
+*/ Find all the WALL-* movies
 
 1.
 SELECT * FROM movies WHERE Title LIKE "%Toy Story%";
