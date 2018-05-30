@@ -2,11 +2,13 @@
 * SelfPaced/courseware/ch-sql/seq-exercise-sql_movie_query_core/
 */
 
-//Q1
+//Q1: 
+// Find the titles of all movies directed by Steven Spielberg. 
 
 SELECT title FROM Movie WHERE director = "Steven Spielberg";
 
 // Q2
+// Find all years that have a movie that received a rating of 4 // or 5, and sort them in increasing order. 
 
 SELECT DISTINCT Movie.year FROM Movie INNER JOIN Rating
 ON Movie.mID = Rating.mID
@@ -14,12 +16,14 @@ WHERE Rating.stars >= 4
 ORDER BY Movie.year;
 
 // Q3
+// Find the titles of all movies that have no ratings. 
 
 SELECT Movie.title FROM Movie 
 WHERE Movie.mID NOT IN
 (SELECT Rating.mID FROM Rating);
 
 // Q4
+// Some reviewers didn't provide a date with their rating. Find // the names of all reviewers who have ratings with a NULL value // for the date. 
 
 SELECT Reviewer.name FROM Reviewer
 INNER JOIN Rating
@@ -27,9 +31,13 @@ ON Reviewer.rID = Rating.rID
 WHERE Rating.ratingDate IS NULL;
 
 // Q5
+// Write a query to return the ratings data in a more readable // format: reviewer name, movie title, stars, and ratingDate. 
+// Also, sort the data, first by reviewer name, then by movie 
+// title, and lastly by number of stars. 
 
 SELECT Reviewer.name, Movie.title, Rating.stars, Rating.ratingDate
 FROM Reviewer, Movie, Rating
 WHERE Movie.mID = Rating.mID AND Reviewer.rID = Rating.rID
 ORDER BY Reviewer.name, Movie.title, Rating.stars;
+
 
