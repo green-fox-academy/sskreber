@@ -1,0 +1,54 @@
+// Q01
+// Find the names of all reviewers who rated Gone with the Wind. 
+
+SELECT DISTINCT Reviewer.name
+FROM Reviewer, Rating, Movie
+WHERE Reviewer.rID = Rating.rID
+AND Rating.mID = Movie.mID
+AND Movie.title = "Gone with the Wind";
+
+// Q02
+// For any rating where the reviewer is the same as the director // of the movie, return the reviewer name, movie title, and // // number of stars. 
+
+SELECT Reviewer.name, Movie.title, Rating.stars
+FROM Reviewer, Movie, Rating
+WHERE Reviewer.rID = Rating.rID
+AND Rating.mID = Movie.mID
+AND Movie.director = Reviewer.name;
+
+// Q02 alternative
+SELECT Reviewer.name, Movie.title, Rating.stars
+FROM Reviewer
+JOIN Rating
+ON Reviewer.rID = Rating.rID
+JOIN Movie
+ON Rating.mID = Movie.mID
+WHERE 
+Movie.director = Reviewer.name;
+
+// Q02 alternative 2.
+SELECT Reviewer.name, Movie.title, Rating.stars
+FROM Reviewer
+JOIN Rating USING (rID)
+JOIN Movie USING (mID)
+WHERE 
+Movie.director = Reviewer.name;
+
+// Q03
+// Return all reviewer names and movie names together in a 
+// single list, alphabetized. (Sorting by the first name of the // reviewer and first word in the title is fine; no need for 
+// special processing on last names or removing "The".) 
+
+SELECT * FROM 
+(SELECT Title from Movie UNION SELECT name FROM Reviewer);
+
+// Q04
+// Find the titles of all movies not reviewed by Chris Jackson. 
+// !!! doesnt run yet!!!!
+SELECT DISTINCT Movie.title
+FROM Movie
+JOIN Rating USING (mID)
+JOIN Reviewer USING (rID)
+WHERE Reviewer.name IS NOT "Chris Jackson";
+
+
