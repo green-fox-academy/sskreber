@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+<body th:style="'font-size:' +  ${fontSize} + 'px;' + 'color:' + ${fontColour}"/>
 <p th:text="${greetingInALanguage} + '!'"/>
 </body>
 </html>
+
