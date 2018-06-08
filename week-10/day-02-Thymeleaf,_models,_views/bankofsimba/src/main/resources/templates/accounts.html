@@ -19,9 +19,8 @@
         <td th:text="${currentAccount.name}"></td>
         <td th:text="${currentAccount.balance} + ' Zebra'"></td>
         <td th:text="${currentAccount.animalType}"></td>
-        <td th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
+        <td style="color:darkgoldenrod" th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
 
-    </tr>
 </table>
 </body>
 </html>
