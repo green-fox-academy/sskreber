@@ -6,25 +6,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 @Controller
-public class ShowController {
+public class AccountController {
 
-    BankAccountService bankAccountService;
+    private final BankAccountService bankAccountService;
 
-    public ShowController(BankAccountService bankAccountService) {
+    public AccountController(BankAccountService bankAccountService) {
         this.bankAccountService = bankAccountService;
     }
 
     @GetMapping("accounts")
-    public String getAllAccountsPage(Model model) {
-        return "home";
+    public String getAllAccount(Model thymeLeafModel) {
+        bankAccountService.createAccount();
+        thymeLeafModel.addAttribute("accounts", bankAccountService.getAllAccount());
+        return "accounts";
     }
-
-
-
 }

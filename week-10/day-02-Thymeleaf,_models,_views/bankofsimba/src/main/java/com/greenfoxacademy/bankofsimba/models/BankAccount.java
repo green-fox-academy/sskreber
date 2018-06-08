@@ -1,17 +1,9 @@
 package com.greenfoxacademy.bankofsimba.models;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
-@Entity
 public class BankAccount {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+
+    private boolean isKing;
 
     private String name;
     private double balance;
@@ -26,12 +18,15 @@ public class BankAccount {
         this.animalType = animalType;
     }
 
-    public long getId() {
-        return id;
+    public BankAccount(String name, double balance, String animalType, boolean isKing) {
+        this.name = name;
+        this.balance = balance;
+        this.animalType = animalType;
+        this.isKing = isKing;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public boolean isKing() {
+        return isKing;
     }
 
     public String getName() {
@@ -56,5 +51,13 @@ public class BankAccount {
 
     public void setAnimalType(String animalType) {
         this.animalType = animalType;
+    }
+
+    public String accountBelongsToKing(BankAccount bankAccount) {
+        if (bankAccount.isKing()) {
+            return "king";
+        } else {
+            return "";
+        }
     }
 }

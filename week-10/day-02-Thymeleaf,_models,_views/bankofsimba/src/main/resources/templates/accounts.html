@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
+    <title>Accounts</title>
+    <meta charset="utf-8"/>
 </head>
 <body>
 
-<h1>Accounts</h1>
-//foreach for accounts
-<h2 th:text="${bankAccount1.name}"></h2>
-<h2 th:text="${bankAccount1.balance}"></h2>
+<table style="width:50%; height:300px; font-size: large">
+    <tr style="background-color:forestgreen">
+        <th>index</th>
+        <th>name</th>
+        <th>balance</th>
+        <th>animal type</th>
+        <th>other info</th>
+    </tr>
+    <tr th:each="currentAccount : ${accounts}" style="background-color:lightgray" align="center">
+        <td th:text="${currentAccountStat.index}"></td>
+        <td th:text="${currentAccount.name}"></td>
+        <td th:text="${currentAccount.balance} + ' Zebra'"></td>
+        <td th:text="${currentAccount.animalType}"></td>
+        <td th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
 
+    </tr>
+</table>
 </body>
 </html>
