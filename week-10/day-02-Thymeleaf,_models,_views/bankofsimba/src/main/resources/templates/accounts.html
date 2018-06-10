@@ -23,11 +23,8 @@
 
         <td th:style="${currentAccount.accountBelongsToKing(currentAccount) == 'king'} ? 'color:darkgoldenrod' : 'color:black'"
             th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
-
-        <td th:switch="${currentAccount.accountBelongsToBadGuy(currentAccount)}">
-            <p th:case="'Bad Guy'">Bad Guy</p>
-            <p th:case="*">Good Guy</p>
-        </td>
+        <td th:style="${currentAccount.accountBelongsToBadGuy(currentAccount) == 'Bad Guy'} ? 'color:red' : 'color:black'"
+            th:text="${currentAccount.accountBelongsToBadGuy(currentAccount)}"></td>
 
 </table>
 </body>
