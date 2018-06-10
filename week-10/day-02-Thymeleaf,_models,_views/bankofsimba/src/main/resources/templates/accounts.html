@@ -15,16 +15,22 @@
         <th>royality info</th>
         <th>morality status</th>
     </tr>
-    <tr th:each="currentAccount : ${accounts}" style="background-color:lightgray" align="center" >
+    <tr th:each="currentAccount : ${accounts}" style="background-color:lightgray" align="center">
         <td th:text="${currentAccountStat.index}"></td>
         <td th:text="${currentAccount.name}"></td>
         <td th:text="${currentAccount.balance} + ' Zebra'"></td>
         <td th:text="${currentAccount.animalType}"></td>
 
         <td th:style="${currentAccount.accountBelongsToKing(currentAccount) == 'king'} ? 'color:darkgoldenrod' : 'color:black'"
-        th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
-        <td th:style="${currentAccount.accountBelongsToBadGuy(currentAccount) == 'Bad Guy'} ? 'color:red' : 'color:black'"
-            th:text="${currentAccount.accountBelongsToBadGuy(currentAccount)}"></td>
+            th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
+
+        <td th:switch="${currentAccount.name}">
+            <p th:case="'Scar'">Bad Guy</p>
+            <p th:case="'Shenzi'">Bad Guy</p>
+            <p th:case="'Banzai'">Bad Guy</p>
+            <p th:case="*">Good Guy</p>
+        </td>
+
 </table>
 </body>
 </html>
