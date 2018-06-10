@@ -21,3 +21,31 @@ JOIN Likes ON H1.ID = Likes.ID1
 JOIN Highschooler H2 ON H2.ID = Likes.ID2
 WHERE H1.grade >= H2.grade + 2;
 
+// Q03
+// For every pair of students who both like each other, return // the name and grade of both students. Include each pair only // once, with the two names in alphabetical order. 
+
+// !!! doesnt work yet!!
+SELECT H1.name, H1.grade, H2.name, H2.grade
+FROM Highschooler H1
+JOIN Likes ON H1.ID = Likes.ID1
+JOIN Highschooler H2 ON H2.ID = Likes.ID2
+WHERE (H1.ID = Likes.ID1) AND (H2.ID = Likes.ID2) 
+AND (H2.ID = Likes.ID1) AND (H1.ID = Likes.ID2)
+
+
+
+// Q04
+// Find all students who do not appear in the Likes table (as a // student who likes or is liked) and return their names and 
+// grades. Sort by grade, then by name within each grade. 
+
+SELECT Highschooler.name, Highschooler.grade 
+FROM Highschooler
+WHERE Highschooler.ID NOT IN
+(
+SELECT 
+ID1 FROM Likes
+UNION
+SELECT ID2 FROM Likes
+)
+ORDER BY Highschooler.grade, Highschooler.name;
+
