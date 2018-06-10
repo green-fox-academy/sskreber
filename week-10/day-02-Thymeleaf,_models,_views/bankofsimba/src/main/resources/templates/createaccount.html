@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New account</title>
+    <meta charset="utf-8"/>
+</head>
+<body style="background-color: palegoldenrod">
+<h1 style="font-size: larger; background-color:sandybrown; color: black" align="center">Create a new account </h1>
+
+<form action="#" th:action="@{/submitnewaccount}" method="post">
+    <div>
+        <label for="name">Your name: </label>
+        <input type="text" id="name" name="name"/>
+    </div>
+    <div>
+        <label for="balance">The deposit you wish to make: </label>
+        <input type="text" id="balance" name="balance"/>
+    </div>
+    <div>
+        <label for="animalType">Your animal type: </label>
+        <input type="text" id="animalType" name="animalType"/>
+    </div>
+    <div>
+        <label for="isKing">Are you royalty? (true/false)</label>
+        <input type="text" id="isKing" name="isKing"/>
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+</body>
+</html>

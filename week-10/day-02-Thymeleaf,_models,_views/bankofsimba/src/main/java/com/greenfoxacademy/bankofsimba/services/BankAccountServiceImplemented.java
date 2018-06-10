@@ -33,6 +33,7 @@ public class BankAccountServiceImplemented implements BankAccountService {
 
     @Override
     public void increaseBalance(BankAccount currentBankAccount) {
+
         if (currentBankAccount.accountBelongsToKing(currentBankAccount).equals("king")) {
             currentBankAccount.setBalance(currentBankAccount.getBalance() + 100);
         } else {
@@ -40,3 +41,4 @@ public class BankAccountServiceImplemented implements BankAccountService {
         }
     }
 }
+

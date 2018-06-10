@@ -66,11 +66,11 @@ public class BankAccount {
     }
 
     public String accountBelongsToBadGuy(BankAccount bankAccount) {
-        if (bankAccount.animalType == "lion") {
-            if (bankAccount.name == "Scar") {
+        if (bankAccount.animalType.equals("lion")) {
+            if (bankAccount.name.equals("Scar")) {
                 return "Bad Guy";
             }
-        } else if (bankAccount.animalType == "hyena") {
+        } else if (bankAccount.animalType.equals("hyena")) {
             return "Bad Guy";
         }
         return "Good Guy";

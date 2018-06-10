@@ -1,8 +1,6 @@
 package com.greenfoxacademy.bankofsimba.services;
 
 import com.greenfoxacademy.bankofsimba.models.BankAccount;
-//import com.greenfoxacademy.bankofsimba.repositories.BankAccountRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,5 +14,5 @@ public interface BankAccountService { //az arraylist feltöltése lesz a dolga
 
     void createAccount();
 
-    void increaseBalance(BankAccount currentBankAccount);
+    void increaseBalance(BankAccount currentAccount);
 }

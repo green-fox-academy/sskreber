@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class AccountController {
 
     private final BankAccountService bankAccountService;
+    public static boolean hasCreatedBaseAccounts = false;
 
     public AccountController(BankAccountService bankAccountService) {
         this.bankAccountService = bankAccountService;
@@ -17,14 +18,19 @@ public class AccountController {
 
     @GetMapping("accounts")
     public String getAllAccount(Model thymeLeafModel) {
-        bankAccountService.createAccount();
+        if (!hasCreatedBaseAccounts) {
+            bankAccountService.createAccount();
+            hasCreatedBaseAccounts = true;
+        }
+
         thymeLeafModel.addAttribute("accounts", bankAccountService.getAllAccount());
         return "accounts";
     }
 
     @PostMapping("accounts")
-    public String increaseBalanceOfAccount(@ModelAttribute BankAccount currentBankAccount) {
-        bankAccountService.increaseBalance(currentBankAccount);
-        return "redirect:/accounts/";
+    public String increaseBalanceOfAccount(@ModelAttribute(value = "index") BankAccount currentAccount) {
+        bankAccountService.increaseBalance(currentAccount);
+        return "redirect:/accounts";
     }
 }
+
