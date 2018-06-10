@@ -57,7 +57,18 @@ public class BankAccount {
         if (bankAccount.isKing()) {
             return "king";
         } else {
-            return "peasant";
+            return "-";
         }
+    }
+
+    public String accountBelongsToBadGuy(BankAccount bankAccount) {
+        if (bankAccount.animalType == "lion") {
+            if (bankAccount.name == "Scar") {
+                return "Bad Guy";
+            }
+        } else if (bankAccount.animalType == "hyena") {
+            return "Bad Guy";
+        }
+        return "Good Guy";
     }
 }
