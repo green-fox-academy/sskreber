@@ -57,7 +57,7 @@ public class BankAccount {
         if (bankAccount.isKing()) {
             return "king";
         } else {
-            return "";
+            return "peasant";
         }
     }
 }

@@ -20,15 +20,21 @@
         <td th:text="${currentAccount.balance} + ' Zebra'"></td>
         <td th:text="${currentAccount.animalType}"></td>
 
-        <td th:if="${currentAccount.accountBelongsToKing(currentAccount)}">
-        <td style="color:darkgoldenrod" th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
-        <td th:unless="${!currentAccount.accountBelongsToKing(currentAccount)}">
-        <td th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
+        <td th:style="${currentAccount.accountBelongsToKing(currentAccount) == 'king'} ? 'color:darkgoldenrod' : 'color:green'"
+        th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
+
+        <!--<td th:if="${currentAccount.accountBelongsToKing(currentAccount)}">-->
+        <!--<td style="color:darkgoldenrod" th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>-->
+        <!--<td th:unless="${!currentAccount.accountBelongsToKing(currentAccount)}">-->
+        <!--<td th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>-->
 
 
 </table>
 </body>
 </html>
+
+
+<!--th:style="${condition} ? 'display:block' : 'display:none'" >-->
 
 <!--&lt;!&ndash; IF CUSTOMER IS ANONYMOUS &ndash;&gt;-->
 <!--<div th:if="${customer.anonymous}">-->
@@ -39,5 +45,3 @@
 <!--<div th:text=" 'Hi,' + ${customer.name}">Hi, User</div>-->
 <!--</div>-->
 
-
-<!--th:style="${condition} ? 'display:block' : 'display:none'" >-->
