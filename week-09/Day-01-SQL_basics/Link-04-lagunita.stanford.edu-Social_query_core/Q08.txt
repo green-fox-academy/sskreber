@@ -1,0 +1,18 @@
+Q06
+doesnt work yet!!!
+
+SELECT DISTINCT H1.name, H1.grade  
+FROM Highschooler H1
+JOIN Friend ON Friend.ID1 = H1.ID
+JOIN Highschooler H2 ON Friend.ID2 = H2.ID
+WHERE H1.grade = H2.grade
+ORDER BY H1.grade, H1.name;
+
+Q08
+Find the difference between the number of students in the school and the number of different first names. 
+
+SELECT 
+COUNT(ID) - COUNT(DISTINCT name)
+FROM Highschooler;
+
+

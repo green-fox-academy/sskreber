@@ -32,8 +32,6 @@ JOIN Highschooler H2 ON H2.ID = Likes.ID2
 WHERE (H1.ID = Likes.ID1) AND (H2.ID = Likes.ID2) 
 AND (H2.ID = Likes.ID1) AND (H1.ID = Likes.ID2)
 
-
-
 // Q04
 // Find all students who do not appear in the Likes table (as a // student who likes or is liked) and return their names and 
 // grades. Sort by grade, then by name within each grade. 
