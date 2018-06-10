@@ -30,4 +30,13 @@ public class BankAccountServiceImplemented implements BankAccountService {
         bankAccounts.add(new BankAccount("Shenzi", 200, "hyena"));
         bankAccounts.add(new BankAccount("Banzai", 50, "hyena"));
     }
+
+    @Override
+    public void increaseBalance(BankAccount currentBankAccount) {
+        if (currentBankAccount.accountBelongsToKing(currentBankAccount).equals("king")) {
+            currentBankAccount.setBalance(currentBankAccount.getBalance() + 100);
+        } else {
+            currentBankAccount.setBalance(currentBankAccount.getBalance() + 10);
+        }
+    }
 }

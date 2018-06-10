@@ -14,7 +14,9 @@
         <th>animal type</th>
         <th>royality info</th>
         <th>morality status</th>
+        <th>increase balance</th>
     </tr>
+
     <tr th:each="currentAccount : ${accounts}" style="background-color:lightgray" align="center">
         <td th:text="${currentAccountStat.index}"></td>
         <td th:text="${currentAccount.name}"></td>
@@ -25,6 +27,11 @@
             th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
         <td th:style="${currentAccount.accountBelongsToBadGuy(currentAccount) == 'Bad Guy'} ? 'color:red' : 'color:black'"
             th:text="${currentAccount.accountBelongsToBadGuy(currentAccount)}"></td>
+        <td>
+            <form action="#" data-th-action="@{/accounts}" th:object="${currentAccount}" method="post">
+                <button type="submit" th:name="currentAccount" th:value="${currentAccount}">increase</button>
+            </form>
+        </td>
 
 </table>
 </body>

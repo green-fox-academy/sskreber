@@ -1,5 +1,9 @@
 package com.greenfoxacademy.bankofsimba.models;
 
+import com.greenfoxacademy.bankofsimba.services.BankAccountService;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
 public class BankAccount {
 
 

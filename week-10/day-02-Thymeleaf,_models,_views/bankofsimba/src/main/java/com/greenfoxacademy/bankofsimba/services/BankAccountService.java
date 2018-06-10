@@ -16,4 +16,5 @@ public interface BankAccountService { //az arraylist feltöltése lesz a dolga
 
     void createAccount();
 
+    void increaseBalance(BankAccount currentBankAccount);
 }
