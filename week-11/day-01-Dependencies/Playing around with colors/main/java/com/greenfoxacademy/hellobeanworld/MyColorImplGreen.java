@@ -1,15 +1,12 @@
 package com.greenfoxacademy.hellobeanworld;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Service
 public class MyColorImplGreen implements MyColor {
-
-    @Autowired
-    Printer printer;
 
     @Override
     public void printColor() {
-        printer.log("It is green in colour...");
+        System.out.println("It is green in colour...");
     }
 }
