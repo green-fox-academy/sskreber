@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GreenFox Students Page</title>
+</head>
+
+<body style="background-color: lightgray" align="center">
+
+<h1 th:text="'Student count: ' + ${studentCount}" style="font-style: italic" th:align="left"></h1>
+
+<div>
+    <p th:text="LINKS" style="font-weight: bold"/>
+</div>
+<div>
+    <a href="http://localhost:8080/gfa/list">List of enrolled students</a>
+</div>
+<div>
+    <a href="http://localhost:8080/gfa/add">Add new student</a>
+</div>
+<div>
+    <a href="http://localhost:8080/gfa/check">Check if student is enrolled</a>
+</div>
+</body>
+
+</html>

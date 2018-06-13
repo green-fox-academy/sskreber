@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Check if student in list</title>
+</head>
+
+<body style="background-color: lightgrey">
+<h1 style="font-size: larger" align="center">Check if student is enrolled</h1>
+
+<form action="#" th:action="@{/gfa/checkifstudentenrolled}" method="post">
+    <div>
+        <label for="checkname">Student's name: </label>
+        <input type="text" id="checkname" name="checkname"/>
+    </div>
+</form>
+
+<div>
+    <p th:text="'The student is enrolled: ' + ${isEnrolledString}"/>
+</div>
+
+</body>
+</html>
