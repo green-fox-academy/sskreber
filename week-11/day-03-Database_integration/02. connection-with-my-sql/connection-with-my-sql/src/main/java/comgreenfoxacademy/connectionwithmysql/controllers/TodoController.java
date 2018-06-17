@@ -1,12 +1,12 @@
-package com.greenfoxacademy.listingtodoswithh2.controllers;
+package comgreenfoxacademy.connectionwithmysql.controllers;
 
-import com.greenfoxacademy.listingtodoswithh2.repositories.TodoRepository;
+import comgreenfoxacademy.connectionwithmysql.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller(value = "/todo")
+@Controller(value = "todo")
 public class TodoController {
 
     private final TodoRepository todoRepository;
@@ -16,7 +16,7 @@ public class TodoController {
         this.todoRepository = todoRepository;
     }
 
-    @GetMapping(value = {"**/", "**/list"})
+    @GetMapping(value = {"/", "/list"})
     public String list(Model model) {
         model.addAttribute("todos", todoRepository.findAll());
         return "todoslist";

@@ -1,4 +1,4 @@
-package com.greenfoxacademy.listingtodoswithh2.models;
+package comgreenfoxacademy.connectionwithmysql.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,15 +20,20 @@ public class Todo {
     @Id
     @GeneratedValue
     private long id;
+
     private String title;
-    private Boolean urgent;
-    private Boolean done;
+    private Boolean isUrgent;
+    private Boolean isDone;
     private LocalDate dateOfCreation;
+
+    public Todo() {
+    }
 
     public Todo(String title, Boolean urgent, Boolean done) {
         this.title = title;
-        this.urgent = urgent;
-        this.done = done;
+        this.isUrgent = urgent;
+        this.isDone = done;
         this.dateOfCreation = LocalDate.now();
     }
 }
+
