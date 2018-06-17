@@ -1,7 +1,7 @@
-package comgreenfoxacademy.connectionwithmysql;
+package com.greenfoxacademy.connectionwithmysql;
 
-import comgreenfoxacademy.connectionwithmysql.models.Todo;
-import comgreenfoxacademy.connectionwithmysql.repositories.TodoRepository;
+import com.greenfoxacademy.connectionwithmysql.models.Todo;
+import com.greenfoxacademy.connectionwithmysql.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

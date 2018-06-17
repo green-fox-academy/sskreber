@@ -1,4 +1,4 @@
-package comgreenfoxacademy.connectionwithmysql.models;
+package com.greenfoxacademy.connectionwithmysql.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

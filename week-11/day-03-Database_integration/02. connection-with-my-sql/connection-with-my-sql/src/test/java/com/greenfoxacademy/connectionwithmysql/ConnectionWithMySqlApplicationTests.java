@@ -1,4 +1,4 @@
-package comgreenfoxacademy.connectionwithmysql;
+package com.greenfoxacademy.connectionwithmysql;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

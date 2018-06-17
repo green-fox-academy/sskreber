@@ -1,6 +1,6 @@
-package comgreenfoxacademy.connectionwithmysql.repositories;
+package com.greenfoxacademy.connectionwithmysql.repositories;
 
-import comgreenfoxacademy.connectionwithmysql.models.Todo;
+import com.greenfoxacademy.connectionwithmysql.models.Todo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

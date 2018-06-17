@@ -1,12 +1,12 @@
-package comgreenfoxacademy.connectionwithmysql.controllers;
+package com.greenfoxacademy.connectionwithmysql.controllers;
 
-import comgreenfoxacademy.connectionwithmysql.repositories.TodoRepository;
+import com.greenfoxacademy.connectionwithmysql.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller(value = "todo")
+@Controller
 public class TodoController {
 
     private final TodoRepository todoRepository;
@@ -16,9 +16,16 @@ public class TodoController {
         this.todoRepository = todoRepository;
     }
 
-    @GetMapping(value = {"/", "/list"})
+    @GetMapping(value = {"todo/", "todo/list"})
     public String list(Model model) {
         model.addAttribute("todos", todoRepository.findAll());
         return "todoslist";
     }
+
+//    @GetMapping("/todo/{isDone}")
+//    public String listUnFinished(@PathVariable(value = "isDone") boolean isDone, Model modelUnFinished) {
+//        modelUnFinished.addAttribute("todos", todoRepository.findAll());
+//        return "todoslist";
+//    }
+
 }
