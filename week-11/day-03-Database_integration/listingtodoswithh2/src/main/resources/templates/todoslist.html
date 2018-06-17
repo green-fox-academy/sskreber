@@ -11,7 +11,8 @@
 
 <div>
     <div th:each="todo : ${todos}">
-        <p th:text="${todo.title} + ' ' + ${todo.urgent} + ' ' + ${todo.done}"></p>
+        <p th:text="${todo.title}"></p>
+        <p style="text-indent: 40px" th:text="'Urgent: ' + ${todo.urgent} + '. ' + 'Done: ' + ${todo.done}"></p>
     </div>
 </div>
 

@@ -23,5 +23,6 @@ public class Listingtodoswithh2Application implements CommandLineRunner {
         todoRepository.save(new Todo("Finish H2 workshop1", true, true));
         todoRepository.save(new Todo("Finish JPA workshop2", true, true));
         todoRepository.save(new Todo("Create a CRUD project", true, true));
+        todoRepository.save(new Todo("Learn Object Relational Mapping", true, false));
     }
 }
