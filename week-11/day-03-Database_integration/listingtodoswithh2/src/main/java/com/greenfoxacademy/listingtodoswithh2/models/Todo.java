@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -24,10 +27,12 @@ public class Todo {
     private String title;
     private Boolean urgent;
     private Boolean done;
+    private LocalDate dateOfCreation;
 
     public Todo(String title, Boolean urgent, Boolean done) {
         this.title = title;
         this.urgent = urgent;
         this.done = done;
+        this.dateOfCreation = LocalDate.now();
     }
 }
