@@ -17,26 +17,14 @@
         <th>date created</th>
         <th>urgent</th>
         <th>done</th>
-        <th></th>
-
     </tr>
 
     <tr th:each="todo : ${todos}">
         <td th:text="${todo.id}"></td>
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.dateOfCreation}"></td>
-        <td th:text="{todo.isUrgent}"></td>
-        <td th:text="{todo.isDone}"></td>
-        <td>
-            <form action="#" th:action="@{'/delete/'} + ${todo.id}" method="post">
-                <input type="submit" value="delete" />
-            </form>
-        </td>
-        <td>
-            <form action="#" th:action="@{'/edit/'} + ${todo.id}" method="post">
-                <input type="submit" value="edit" />
-            </form>
-        </td>
+        <td th:text="${todo.urgent}"></td>
+        <td th:text="${todo.done}"></td>
     </tr>
 </table>
 </div>

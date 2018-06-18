@@ -1,11 +1,10 @@
-package com.greenfoxacademy.connectionwithmysql.models;
+package com.greenfoxacademy.connectionwithmysqlsecond.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
-
 
 @Entity
 @Table(name = "todos")
@@ -23,10 +22,10 @@ public class Todo {
     public Todo() {
     }
 
-    public Todo(String title, Boolean urgent, Boolean done) {
+    public Todo(String title, Boolean isUrgent, Boolean isDone) {
         this.title = title;
-        this.isUrgent = urgent;
-        this.isDone = done;
+        this.isUrgent = isUrgent;
+        this.isDone = isDone;
         this.dateOfCreation = LocalDate.now();
     }
 

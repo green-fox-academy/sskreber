@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<div>
+    <table style="width:50%; height:300px; font-size: large">
+        <tr style="background-color:sandybrown">
+            <th>id</th>
+            <th>action</th>
+            <th>date created</th>
+            <th>urgent</th>
+            <th>done</th>
+        </tr>
+
+        <tr>
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.title}"></td>
+            <td th:text="${todo.dateOfCreation}"></td>
+            <td th:text="{todo.isUrgent}"></td>
+            <td th:text="{todo.isDone}"></td>
+        </tr>
+        <tr>
+            <td th:text="${todo.id}"></td>
+            <td>
+                <label for="title"></label>
+                <input type="text" id="title" name="title"/>
+            </td>
+            <td th:text="${todo.dateOfCreation}"></td>
+            <td>
+                <label for="isUrgent"></label>
+                <input type="text" id="isUrgent" name="isUrgent"/>
+            </td>
+            <td>
+                <label for="isDone"></label>
+                <input type="text" id="isDone" name="isDone"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<body>
+
+</body>
+</html>
