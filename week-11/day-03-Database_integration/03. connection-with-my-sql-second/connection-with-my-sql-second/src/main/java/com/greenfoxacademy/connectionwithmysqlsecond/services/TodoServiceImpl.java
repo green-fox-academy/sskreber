@@ -27,17 +27,19 @@ public class TodoServiceImpl implements TodoService {
         return (ArrayList<Todo>) todoRepository.findAll();
     }
 
-    public List<Todo> getAllActiveTodo(boolean active) {
-// get more code here
-        List<Todo> activeTodos = new ArrayList<>();
-        List<Todo> allTodo = (ArrayList<Todo>) todoRepository.findAll();
-
-        for (Todo todo : allTodo) {
-            if (!todo.getDone()) {
-                allTodo.add(todo);
-            }
-        }
-        return activeTodos;
+    public List<Todo> getAllActiveTodo() {
+        return todoRepository.findTodoByIsDoneFalse();
     }
 
+    public List<Todo> getAllDoneTodo() {
+        return todoRepository.findTodoByIsDoneTrue();
+    }
+
+    public List<Todo> getAllTodoByFinishedness(boolean isActive) {
+        if (isActive) {
+            return getAllActiveTodo();
+        } else {
+            return getAllDoneTodo();
+        }
+    }
 }

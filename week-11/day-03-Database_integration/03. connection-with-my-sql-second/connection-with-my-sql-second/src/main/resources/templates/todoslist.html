@@ -19,7 +19,7 @@
         <th>done</th>
     </tr>
 
-    <tr th:each="todo : ${todos}">
+    <tr th:each="todo : ${todos}" th:align="center">
         <td th:text="${todo.id}"></td>
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.dateOfCreation}"></td>

@@ -25,9 +25,8 @@ public class TodoController {
     }
 
     @RequestMapping(value = "/todo")
-    public String listActive(@RequestParam("isActive") boolean active, Model model)  {
-        model.addAttribute("todos", todoService.getAllActiveTodo(active));
+    public String listActive(@RequestParam("isActive") boolean isActive, Model model)  {
+        model.addAttribute("todos", todoService.getAllTodoByFinishedness(isActive));
         return "todoslist";
     }
-
 }

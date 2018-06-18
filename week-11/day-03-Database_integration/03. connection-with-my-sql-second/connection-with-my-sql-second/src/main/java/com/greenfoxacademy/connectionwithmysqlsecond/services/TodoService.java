@@ -14,5 +14,7 @@ public interface TodoService {
 
     public List<Todo> getAllTodo();
 
-    public List<Todo> getAllActiveTodo(boolean active);
+    public List<Todo> getAllActiveTodo();
+
+    public List<Todo> getAllTodoByFinishedness(boolean isActive);
 }
