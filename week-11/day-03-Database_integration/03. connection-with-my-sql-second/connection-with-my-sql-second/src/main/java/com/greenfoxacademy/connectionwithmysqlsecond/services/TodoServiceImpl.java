@@ -60,6 +60,4 @@ public class TodoServiceImpl implements TodoService {
     public void deleteTodoByTitle(String title) {
         todoRepository.deleteTodoByTitle(title);
     }
-
-
 }

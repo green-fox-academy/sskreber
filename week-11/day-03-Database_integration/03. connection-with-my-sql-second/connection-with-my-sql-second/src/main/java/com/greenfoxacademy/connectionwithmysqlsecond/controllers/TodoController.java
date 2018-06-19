@@ -63,8 +63,8 @@ public class TodoController {
     public String increaseBalanceOfAccount(@PathVariable(value = "id") long id,
                                            @ModelAttribute(value = "todoToUpdate") Todo todoToUpdate,
                                            @ModelAttribute(value = "title") String updatedTitle,
-                                           @ModelAttribute(value = "isUrgent") boolean updatedIsUrgent,
-                                           @ModelAttribute(value = "isDone") boolean updatedIsDone) {
+                                           @RequestParam(value = "isUrgent", required = false, defaultValue = "false") boolean updatedIsUrgent,
+                                           @RequestParam(value = "isDone", required = false, defaultValue = "false") boolean updatedIsDone) {
         Todo updatedTodo = new Todo(updatedTitle, updatedIsUrgent, updatedIsDone);
 
         updatedTodo.setDateOfCreation(todoToUpdate.getDateOfCreation());
