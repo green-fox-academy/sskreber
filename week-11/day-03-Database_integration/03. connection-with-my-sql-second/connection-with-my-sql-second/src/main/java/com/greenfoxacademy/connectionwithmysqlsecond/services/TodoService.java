@@ -17,4 +17,6 @@ public interface TodoService {
     public List<Todo> getAllActiveTodo();
 
     public List<Todo> getAllTodoByFinishedness(boolean isActive);
+
+    public void saveTodo(Todo todo);
 }

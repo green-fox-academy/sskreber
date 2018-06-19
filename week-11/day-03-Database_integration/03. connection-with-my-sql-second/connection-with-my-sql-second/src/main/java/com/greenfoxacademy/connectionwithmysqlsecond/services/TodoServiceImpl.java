@@ -42,4 +42,8 @@ public class TodoServiceImpl implements TodoService {
             return getAllDoneTodo();
         }
     }
+
+    public void saveTodo(Todo todo) {
+        todoRepository.save(todo);
+    }
 }

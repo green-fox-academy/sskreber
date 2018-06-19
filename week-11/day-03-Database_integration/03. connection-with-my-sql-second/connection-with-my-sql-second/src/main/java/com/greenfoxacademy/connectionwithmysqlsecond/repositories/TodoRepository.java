@@ -11,5 +11,8 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
     List<Todo> findTodoByIsDoneFalse();
     List<Todo> findTodoByIsDoneTrue();
+
+    @Override
+    <S extends Todo> S save(S entity);
 }
 

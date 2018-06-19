@@ -1,12 +1,11 @@
 package com.greenfoxacademy.connectionwithmysqlsecond.controllers;
 
+import com.greenfoxacademy.connectionwithmysqlsecond.models.Todo;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TodoController {
@@ -19,14 +18,27 @@ public class TodoController {
     }
 
     @GetMapping(value = "/list")
-    public String list(Model model) {
+    public String listTodos(Model model) {
         model.addAttribute("todos", todoService.getAllTodo());
         return "todoslist";
     }
 
     @RequestMapping(value = "/todo")
-    public String listActive(@RequestParam("isActive") boolean isActive, Model model)  {
+    public String listActiveTodos(@RequestParam("isActive") boolean isActive, Model model)  {
         model.addAttribute("todos", todoService.getAllTodoByFinishedness(isActive));
         return "todoslist";
+    }
+
+    @GetMapping("todo/create")
+    public String createTodoPage() {
+        return "create";
+    }
+
+    @PostMapping("submitnewtodo")
+    public String submitNewTodo(@ModelAttribute(value = "title") String title,
+                             @ModelAttribute(value = "isUrgent") boolean isUrgent,
+                             @ModelAttribute(value = "isDone") boolean isDone) {
+        todoService.saveTodo(new Todo(title, isUrgent, isDone));
+        return "redirect:/list";
     }
 }
