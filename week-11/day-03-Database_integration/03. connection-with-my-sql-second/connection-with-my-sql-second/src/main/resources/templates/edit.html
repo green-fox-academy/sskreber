@@ -2,31 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit todo</title>
 </head>
+
 <body>
 
-<form action="#" th:action="@{'/submitnewtodo'}" method="post">
+<form action="#" th:action="@{/update/} + ${id}" th:object="${todoToUpdate}" method="post">
     <div>
-        <label for="title">Action (todo title): </label>
+        <label for="title">Todo description </label>
         <input type="text" id="title" name="title"/>
     </div>
     <div>
-        <label for="isUrgent">Is it urgent? </label>
+        <label for="isUrgent">Urgent </label>
         <input type="text" id="isUrgent" name="isUrgent"/>
     </div>
     <div>
-        <label for="isDone">Is it finished? </label>
+        <label for="isDone">Done </label>
         <input type="text" id="isDone" name="isDone"/>
     </div>
     <div>
         <input type="submit" value="Submit">
     </div>
-    <td>
-        <form action="#" th:action="@{'/edit'} + ${todo.id}" method="post">
-            <input type="submit" value="edit"/>
-        </form>
-    </td>
 </form>
 
 </body>

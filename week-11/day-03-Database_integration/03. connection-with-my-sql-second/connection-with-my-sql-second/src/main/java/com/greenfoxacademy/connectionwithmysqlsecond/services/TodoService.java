@@ -10,15 +10,19 @@ import java.util.Optional;
 @Service
 public interface TodoService {
 
-    public Optional<Todo> getTodoById(long id);
+    Optional<Todo> getTodoById(long id);
 
-    public List<Todo> getAllTodo();
+    List<Todo> getAllTodo();
 
-    public List<Todo> getAllActiveTodo();
+    List<Todo> getAllActiveTodo();
 
-    public List<Todo> getAllTodoByFinishedness(boolean isActive);
+    List<Todo> getAllTodoByFinishedness(boolean isActive);
 
-    public void saveTodo(Todo todo);
+    void saveTodo(Todo todo);
 
-    public void deleteTodoById(long id);
+    void deleteTodoById(long id);
+
+    boolean existsById(long id);
+
+    void deleteTodoByTitle(String title);
 }

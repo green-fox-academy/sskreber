@@ -51,4 +51,15 @@ public class TodoServiceImpl implements TodoService {
     public void deleteTodoById(long id) {
         todoRepository.deleteById(id);
     }
+
+    public boolean existsById(long id) {
+        return todoRepository.existsById(id);
+    }
+
+    @Override
+    public void deleteTodoByTitle(String title) {
+        todoRepository.deleteTodoByTitle(title);
+    }
+
+
 }

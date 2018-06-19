@@ -18,5 +18,10 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
     @Override
     void deleteById(Long aLong);
+
+    @Override
+    boolean existsById(Long aLong);
+
+    void deleteTodoByTitle(String title);
 }
 

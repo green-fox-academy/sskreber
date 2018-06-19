@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Optional;
+
 @Controller
 public class TodoController {
 
@@ -45,6 +48,28 @@ public class TodoController {
     @PostMapping("delete/{id}")
     public String increaseBalanceOfAccount(@PathVariable(value = "id") long id) {
         todoService.deleteTodoById(id);
+        return "redirect:/list";
+    }
+
+    @GetMapping("edit/{id}")
+    public String edit(@PathVariable(value = "id") long id, Model todoToUpdateModel) {
+        Optional<Todo> todoToUpdate = todoService.getTodoById(id);
+        todoToUpdateModel.addAttribute("todoToUpdate", todoToUpdate);
+        todoToUpdateModel.addAttribute("id", id);
+        return "edit";
+    }
+
+    @PostMapping("update/{id}")
+    public String increaseBalanceOfAccount(@PathVariable(value = "id") long id,
+                                           @ModelAttribute(value = "todoToUpdate") Todo todoToUpdate,
+                                           @ModelAttribute(value = "title") String updatedTitle,
+                                           @ModelAttribute(value = "isUrgent") boolean updatedIsUrgent,
+                                           @ModelAttribute(value = "isDone") boolean updatedIsDone) {
+        Todo updatedTodo = new Todo(updatedTitle, updatedIsUrgent, updatedIsDone);
+        updatedTodo.setDateOfCreation(todoToUpdate.getDateOfCreation());
+        todoService.deleteTodoById(id);
+        updatedTodo.setId(id);
+        todoService.saveTodo(updatedTodo);
         return "redirect:/list";
     }
 }
