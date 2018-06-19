@@ -19,4 +19,6 @@ public interface TodoService {
     public List<Todo> getAllTodoByFinishedness(boolean isActive);
 
     public void saveTodo(Todo todo);
+
+    public void deleteTodoById(long id);
 }
