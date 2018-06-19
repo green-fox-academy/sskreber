@@ -31,6 +31,14 @@ public class Todo {
         this.dateOfModification = LocalDate.now();
     }
 
+    public Todo(String title) {
+        this.title = title;
+        this.isUrgent = false;
+        this.isDone = false;
+        this.dateOfCreation = LocalDate.now();
+        this.dateOfModification = LocalDate.now();
+    }
+
     public long getId() {
         return id;
     }
@@ -55,6 +63,7 @@ public class Todo {
         isUrgent = urgent;
     }
 
+
     public Boolean getDone() {
         return isDone;
     }
@@ -78,5 +87,6 @@ public class Todo {
     public void setDateOfModification(LocalDate dateOfModification) {
         this.dateOfModification = dateOfModification;
     }
+
 }
 

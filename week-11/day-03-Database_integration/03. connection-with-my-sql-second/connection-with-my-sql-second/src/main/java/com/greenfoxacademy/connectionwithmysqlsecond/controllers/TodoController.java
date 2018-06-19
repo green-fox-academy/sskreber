@@ -66,6 +66,7 @@ public class TodoController {
                                            @ModelAttribute(value = "isUrgent") boolean updatedIsUrgent,
                                            @ModelAttribute(value = "isDone") boolean updatedIsDone) {
         Todo updatedTodo = new Todo(updatedTitle, updatedIsUrgent, updatedIsDone);
+
         updatedTodo.setDateOfCreation(todoToUpdate.getDateOfCreation());
         todoService.deleteTodoById(id);
         updatedTodo.setId(id);

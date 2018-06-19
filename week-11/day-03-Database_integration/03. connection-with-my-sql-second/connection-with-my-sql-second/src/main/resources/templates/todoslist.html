@@ -15,8 +15,10 @@
             <th>id</th>
             <th>action</th>
             <th>date created</th>
+            <th>date modified</th>
             <th>urgent</th>
             <th>done</th>
+            <th></th>
             <th></th>
         </tr>
 
@@ -24,6 +26,7 @@
             <td th:text="${todo.id}"></td>
             <td th:text="${todo.title}"></td>
             <td th:text="${todo.dateOfCreation}"></td>
+            <td th:text="${todo.dateOfModification}"></td>
             <td th:text="${todo.urgent}"></td>
             <td th:text="${todo.done}"></td>
             <td>
