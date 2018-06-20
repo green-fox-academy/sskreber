@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <title>Programmer Fox Club</title>
 </head>
+
 <body>
 
 <ul>
 <li>
-    <a href="http://localhost:8080/information">Information</a>
+    <a th:href="@{/information}" href="#">Information</a>
 </li>
 </ul>
 
 <div>
-    <i><img id="greenfox" src="greenfox.png" alt="Green Fox"></img></i>
+    <img id="greenfox" src="greenfox.png" alt="Green Fox"/>
 </div>
 
 <div>
-    <p>This is Mr Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
+    <p>This is Mr Fox. Currently living on pizza and lemonade. He knows 2 tricks."</p>
 </div>
 
-<h1 th:text="Known tricks"></h1>
+<h1>Known tricks </h1>
+
 <ul>
     <li>
         <p>write html</p>
