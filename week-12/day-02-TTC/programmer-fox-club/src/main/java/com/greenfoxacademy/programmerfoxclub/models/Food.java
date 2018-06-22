@@ -4,7 +4,7 @@ public enum Food {
     SALAD("salad"),
     HAM_SANDWICH("ham sandwich"),
     BURGERS("burgers"),
-    PIZZA("pizza with ketcup"),
+    PIZZA("pizza with ketchup"),
     CHINESE_FOOD("Chinese food"),
     SAUERKRAUT("sauerkraut"),
     APPLE_PIE("apple pie"),

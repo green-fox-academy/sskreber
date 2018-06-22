@@ -15,7 +15,7 @@
 
 <ul>
     <li>
-        <a th:href="@{/nutrition/}" href="#">Nutrition store</a>
+        <a th:href="@{'/nutritionstore?name=' + ${name}}">Nutrition Store</a>
     </li>
 </ul>
 
@@ -24,7 +24,7 @@
 </div>
 
 <div>
-    <p th:text="'This is ' + ${name} + '. Currently living on ' + ${drink} + ' and ' + ${food} + '. He knows ' + ${numberoftricks} + ' trick(s).'"></p>
+    <p th:text="'This is ' + ${name} + '. Currently living on ' + ${food.getDescription()} + ' and ' + ${drink.getDescription()} + '. He knows ' + ${numberoftricks} + ' trick(s).'"></p>
 </div>
 
 <h1>Known tricks </h1>
@@ -37,7 +37,7 @@
     <ul>
         <li>
             <div th:each="trick : ${fox.getLearnedTricks()}">
-                <p th:text="${trick}"></p>
+                <p th:text="${trick.getDescription()}"></p>
             </div>
         </li>
     </ul>

@@ -98,6 +98,8 @@ public class Fox {
         this.name = name;
         this.numberOfTricks = 0;
         this.learnedTricks = new ArrayList<>();
+        this.chosenDrink = WATER;
+        this.chosenFood = PIZZA;
         this.fillAvailableDrinksList();
         this.fillAvailableFoodsList();
         this.fillAvailableTricksList();

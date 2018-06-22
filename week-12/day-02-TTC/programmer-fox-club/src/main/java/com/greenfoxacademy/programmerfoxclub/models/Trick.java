@@ -1,12 +1,12 @@
 package com.greenfoxacademy.programmerfoxclub.models;
 
 public enum Trick {
-    HTML("write html"),
-    CODE_JAVA("code java"),
-    PLAY_WANDERER("play wanderer"),
-    SURF("surf"),
-    PLAY_CHESS("play chess"),
-    UNDERSTAND_VINTAGE_MOVIES("understand vintage movies"),
+    HTML("writing html"),
+    CODE_JAVA("coding java"),
+    PLAY_WANDERER("playing wanderer"),
+    SURF("surfing"),
+    PLAY_CHESS("playing chess"),
+    UNDERSTAND_VINTAGE_MOVIES("understanding vintage movies"),
     ;
 
     private String description;

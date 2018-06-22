@@ -5,19 +5,32 @@
 </head>
 <body>
 
-<!--<div>-->
-    <!--<form:select path="food" items="${fox.getAvailableFoods()}"/>-->
-    <!--<select id="food" name="food">-->
-        <!--<div th:each="food : ${fox.getAvailableFoods()}">-->
-            <!--<option value="food">${food.getDescription()}</option>-->
-        <!--</div>-->
-    <!--</select>-->
-<!--</div>-->
-
 <div>
-    <p th:text="'This is ' + ${loggedinfox.getName()} + '. Currently living on ' + ${loggedinfox.getDrink()} + ' and ' + ${loggedinfox.getFood()} + '.'"></p>
+    <p th:text="'This is ' + ${fox.getName()} + '. Currently living on '
+    + ${fox.getDrink().getDescription()} + ' and ' + ${fox.getFood().getDescription()} + '.'"></p>
 </div>
 
+<!--I gazed upon josanandi's repo to get a better understanding of the droplist form. Many mercies:)-->
+<div>
+<form name='nutritionstore' action="#" th:action="@{/nutritionstoreupdate}" method='POST'>
+    <p> <input type="hidden" name="fox" th:value="${fox}"/></p>
+    <p> <input type="hidden" name="name" th:value="${name}"/></p>
+    <label for="food">Chose your pet's food source</label>
+    <select id="food" name="food">
+        <option th:each="food : ${fox.availableFoods}"
+                th:value="${food}"
+                th:utext="${food.getDescription()}"/>
+    </select>
+
+    <label for="drink">Chose your pet's favourite drink</label>
+    <select id="drink" name="drink">
+        <option th:each="drink : ${fox.availableDrinks}"
+                th:value="${drink}"
+                th:utext="${drink.getDescription()}"/>
+    </select>
+    <button th:type="submit" name="submit" value="submit ">Update pet's preferences</button>
+</form>
+</div>
 
 </body>
 </html>

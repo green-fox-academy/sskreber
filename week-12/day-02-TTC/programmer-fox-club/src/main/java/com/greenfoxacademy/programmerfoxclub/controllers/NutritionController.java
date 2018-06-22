@@ -1,5 +1,8 @@
 package com.greenfoxacademy.programmerfoxclub.controllers;
 
+import com.greenfoxacademy.programmerfoxclub.models.Drink;
+import com.greenfoxacademy.programmerfoxclub.models.Food;
+import com.greenfoxacademy.programmerfoxclub.models.Fox;
 import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,15 +21,28 @@ public class NutritionController {
         this.foxService = foxService;
     }
 
-    @GetMapping(value = "/nutrition/")
-    public String redirectToNutritionPage() {
-        String name = FoxService.getLoggedInFox().getName();
-        return "redirect:/nutritionstore/?name=" + name;
+    @GetMapping("/nutritionstore")
+    public String getNutritionStore(@RequestParam(value = "name", required = false) String name, Model nutritionModel) {
+        if (name == null) {
+            return "login";
+        } else {
+            Fox fox = foxService.getFoxByName(name);
+            nutritionModel.addAttribute("name", name);
+            nutritionModel.addAttribute("fox", fox);
+            return "nutritionpage";
+        }
     }
 
-    @GetMapping("/nutritionstore/")
-    public String getNutritionPage(Model nutritionModel) {
-        nutritionModel.addAttribute("loggedinfox", FoxService.getLoggedInFox());
-        return "nutritionpage";
+    @PostMapping(value = "nutritionstoreupdate")
+    public String updatePetsChosenFoodAndDrink(Model updatedFoxModel,
+                                               @RequestParam(value = "name") String name,
+                                               @RequestParam(value = "fox") Fox fox,
+                                               @RequestParam(value = "food") Food food,
+                                               @RequestParam(value = "drink") Drink drink) {
+
+        foxService.getFoxByName(name).setDrink(drink);
+        foxService.getFoxByName(name).setFood(food);
+        updatedFoxModel.addAttribute("name", name);
+        return "redirect:/?name=" + name;
     }
 }
