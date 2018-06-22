@@ -15,7 +15,7 @@
 
 <ul>
     <li>
-        <a th:href="@{/nutritionstore}" href="#">Nutrition store</a>
+        <a th:href="@{/nutrition/}" href="#">Nutrition store</a>
     </li>
 </ul>
 
@@ -24,7 +24,7 @@
 </div>
 
 <div>
-    <p th:text="'This is ' + ${name} + '. Currently living on salad and water. He knows ' + ${numberoftricks} + ' trick(s).'"></p>
+    <p th:text="'This is ' + ${name} + '. Currently living on ' + ${drink} + ' and ' + ${food} + '. He knows ' + ${numberoftricks} + ' trick(s).'"></p>
 </div>
 
 <h1>Known tricks </h1>

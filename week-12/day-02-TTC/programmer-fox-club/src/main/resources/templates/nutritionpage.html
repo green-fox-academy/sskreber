@@ -1,0 +1,23 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition store</title>
+</head>
+<body>
+
+<!--<div>-->
+    <!--<form:select path="food" items="${fox.getAvailableFoods()}"/>-->
+    <!--<select id="food" name="food">-->
+        <!--<div th:each="food : ${fox.getAvailableFoods()}">-->
+            <!--<option value="food">${food.getDescription()}</option>-->
+        <!--</div>-->
+    <!--</select>-->
+<!--</div>-->
+
+<div>
+    <p th:text="'This is ' + ${loggedinfox.getName()} + '. Currently living on ' + ${loggedinfox.getDrink()} + ' and ' + ${loggedinfox.getFood()} + '.'"></p>
+</div>
+
+
+</body>
+</html>

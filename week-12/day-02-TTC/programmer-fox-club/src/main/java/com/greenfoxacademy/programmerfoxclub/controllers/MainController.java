@@ -24,9 +24,14 @@ public class MainController {
         if (name == null) {
             return "login";
         } else {
+            Fox fox = foxService.getFoxByName(name);
             nameModel.addAttribute("name", name);
-            nameModel.addAttribute("numberoftricks", foxService.getFoxByName(name).getNumberOfTricks());
-            nameModel.addAttribute("fox", foxService.getFoxByName(name));
+            nameModel.addAttribute("fox", fox);
+            nameModel.addAttribute("numberoftricks", fox.getNumberOfTricks());
+            nameModel.addAttribute("food", fox.getFood());
+            nameModel.addAttribute("drink", fox.getDrink());
+
+            FoxService.setLoggedInFox(fox);
             return "index";
         }
     }
@@ -48,6 +53,7 @@ public class MainController {
     @PostMapping(value = "/registername")
     public String register(@RequestParam(value = "name") String name) {
         foxService.saveFox(new Fox(name));
+        FoxService.setLoggedInFox(foxService.getFoxByName(name));
         return "redirect:/?name=" + name;
     }
 }

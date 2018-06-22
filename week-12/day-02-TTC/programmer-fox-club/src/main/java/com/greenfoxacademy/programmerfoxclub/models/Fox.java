@@ -9,12 +9,29 @@ import static com.greenfoxacademy.programmerfoxclub.models.Trick.*;
 import static com.greenfoxacademy.programmerfoxclub.models.Drink.*;
 
 public class Fox {
+    private static long foxCounter = 0;
+
+    private long id;
+
     private String name;
     private int numberOfTricks;
     private Food chosenFood;
     private Drink chosenDrink;
 
     public List<Trick> learnedTricks = new ArrayList<>();
+
+    public List<Trick> getAvailableTricks() {
+        return availableTricks;
+    }
+
+    public List<Food> getAvailableFoods() {
+        return availableFoods;
+    }
+
+    public List<Drink> getAvailableDrinks() {
+        return availableDrinks;
+    }
+
     public List<Trick> availableTricks = new ArrayList<>();
     public List<Food> availableFoods = new ArrayList<>();
     public List<Drink> availableDrinks = new ArrayList<>();
@@ -23,6 +40,10 @@ public class Fox {
 
     public String getName() {
         return name;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setName(String name) {
@@ -72,6 +93,8 @@ public class Fox {
     }
 
     public Fox(String name) {
+        foxCounter++;
+        this.id = foxCounter;
         this.name = name;
         this.numberOfTricks = 0;
         this.learnedTricks = new ArrayList<>();

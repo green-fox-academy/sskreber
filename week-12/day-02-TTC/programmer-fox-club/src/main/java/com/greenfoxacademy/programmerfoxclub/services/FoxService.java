@@ -2,6 +2,7 @@ package com.greenfoxacademy.programmerfoxclub.services;
 
 import com.greenfoxacademy.programmerfoxclub.models.Fox;
 import com.greenfoxacademy.programmerfoxclub.models.Trick;
+import com.greenfoxacademy.programmerfoxclub.repositories.FoxRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,5 +18,13 @@ public interface FoxService {
 
     public Fox getFoxByName(String name);
 
-//    public void saveTrick(Fox fox, Fox.Trick trick);
+    public Fox getFoxById(long id);
+
+    public static void setLoggedInFox(Fox loggedInFox) {
+        FoxRepository.setLoggedInFox(loggedInFox);
+    }
+
+    public static Fox getLoggedInFox() {
+        return FoxRepository.loggedInFox;
+    }
 }

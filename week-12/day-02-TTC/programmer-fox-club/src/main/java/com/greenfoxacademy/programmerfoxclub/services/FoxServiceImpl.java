@@ -34,7 +34,15 @@ public class FoxServiceImpl implements FoxService {
         return foxRepository.getFoxByName(name);
     }
 
-//    public void saveTrick(Fox fox, Fox.Trick trick) {
-//       foxRepository.saveTrick(fox, trick);
-//    }
+    public static void setLoggedInFox(Fox loggedInFox) {
+        FoxRepository.setLoggedInFox(loggedInFox);
+    }
+
+    public static Fox getLoggedInFox() {
+        return FoxRepository.loggedInFox;
+    }
+
+    public Fox getFoxById(long id) {
+        return foxRepository.getFoxById(id);
+    }
 }
