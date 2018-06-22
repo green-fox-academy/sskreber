@@ -26,6 +26,7 @@ public class MainController {
         } else {
             nameModel.addAttribute("name", name);
             nameModel.addAttribute("numberoftricks", foxService.getFoxByName(name).getNumberOfTricks());
+            nameModel.addAttribute("fox", foxService.getFoxByName(name));
             return "index";
         }
     }

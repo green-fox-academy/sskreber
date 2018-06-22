@@ -21,10 +21,6 @@ public class FoxServiceImpl implements FoxService {
         return fox.getLearnedTricks();
     }
 
-    public void saveTrick(Fox.Trick trick) {
-        foxRepository.saveTrick(trick);
-    }
-
     public void saveFox(Fox fox) {
         foxRepository.saveFox(fox);
     }
@@ -36,4 +32,8 @@ public class FoxServiceImpl implements FoxService {
     public Fox getFoxByName(String name) {
         return foxRepository.getFoxByName(name);
     }
+
+//    public void saveTrick(Fox fox, Fox.Trick trick) {
+//       foxRepository.saveTrick(fox, trick);
+//    }
 }

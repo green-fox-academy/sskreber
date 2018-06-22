@@ -13,9 +13,9 @@ public class FoxRepository {
 
     public ArrayList<Fox> foxes = new ArrayList<Fox>();
 
-    public void saveTrick(Trick trick) {
-        learnedTricks.add(trick);
-    }
+//    public void saveTrick(Fox fox, Trick trick) {
+//        fox.learnedTricks.add(trick);
+//    }
 
     public void saveFox(Fox fox) {
         foxes.add(fox);

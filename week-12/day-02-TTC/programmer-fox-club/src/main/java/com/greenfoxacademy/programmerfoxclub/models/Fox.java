@@ -9,7 +9,8 @@ public class Fox {
     private String food;
     private String drink;
 
-    private List<Trick> learnedTricks;
+    public List<Trick> learnedTricks;
+
     private List<Fox> foxes;
 
     public String getName() {
@@ -50,6 +51,11 @@ public class Fox {
 
     public void setLearnedTricks(List<Trick> learnedTricks) {
         this.learnedTricks = learnedTricks;
+    }
+
+    public void addNewTrick(Trick learnedTrick) {
+        this.learnedTricks.add(learnedTrick);
+        numberOfTricks++;
     }
 
     public enum Trick {

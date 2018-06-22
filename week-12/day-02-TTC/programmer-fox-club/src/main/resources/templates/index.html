@@ -18,16 +18,25 @@
 </div>
 
 <div>
-    <p th:text="'This is ' + ${name} + '. Currently living on salad and water. He knows ' + ${numberoftricks} + ' tricks.'"></p>
+    <p th:text="'This is ' + ${name} + '. Currently living on salad and water. He knows ' + ${numberoftricks} + ' trick(s).'"></p>
 </div>
 
 <h1>Known tricks </h1>
 
-<ul>
-    <p>
-    <p th:text="${numberoftricks == 0} ? 'Please teach your fox some tricks' : 'He knows some tricks'"></p>
-    </li>
-</ul>
+<div>
+    <p th:text="${numberoftricks == 0} ? 'You know no tricks yet. Go and learn some.' : ''"></p>
+</div>
+
+<div th:if="${numberoftricks != 0}">
+    <ul>
+        <li>
+            <div th:each="trick : ${fox.getLearnedTricks()}">
+                <p th:text="${trick}"></p>
+            </div>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>
+

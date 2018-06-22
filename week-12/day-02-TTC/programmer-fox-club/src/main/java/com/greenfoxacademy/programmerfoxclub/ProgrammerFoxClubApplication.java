@@ -7,6 +7,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import static com.greenfoxacademy.programmerfoxclub.models.Fox.Trick.PLAY_CHESS;
+import static com.greenfoxacademy.programmerfoxclub.models.Fox.Trick.SURF;
+
 @SpringBootApplication
 public class ProgrammerFoxClubApplication implements CommandLineRunner {
 
@@ -22,5 +25,7 @@ public class ProgrammerFoxClubApplication implements CommandLineRunner {
         foxRepository.saveFox(new Fox("Bogyo"));
         foxRepository.saveFox(new Fox("Tiger"));
         foxRepository.saveFox(new Fox("Mr Green"));
+        foxRepository.getFoxByName("Bogyo").addNewTrick(SURF);
+        foxRepository.getFoxByName("Bogyo").addNewTrick(PLAY_CHESS);
     }
 }

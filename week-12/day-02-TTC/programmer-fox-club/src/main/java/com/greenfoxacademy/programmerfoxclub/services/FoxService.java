@@ -10,11 +10,11 @@ public interface FoxService {
 
     public List<Fox.Trick> getLearnedTricks(Fox fox);
 
-    public void saveTrick(Fox.Trick trick);
-
     public void saveFox(Fox fox);
 
     public boolean doesFoxNameExist(String name);
 
     public Fox getFoxByName(String name);
+
+//    public void saveTrick(Fox fox, Fox.Trick trick);
 }
