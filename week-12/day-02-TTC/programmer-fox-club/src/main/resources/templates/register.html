@@ -2,15 +2,17 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome page</title>
+    <title>Register page</title>
 </head>
 <body>
 
 <h1>Welcome to Programmer Fox Club!</h1>
 
-<p>Please enter your pet's name!</p>
+<p>No fox exists by that name. Do you want to register a new pet?</p>
 
-<form action="#" th:action="@{'/submitname'}" method="post">
+<p>Please provide a name for your new pet!</p>
+
+<form action="#" th:action="@{'/registername'}" method="post">
     <div>
         <label for="name">Name </label>
         <input type="text" id="name" name="name"/>

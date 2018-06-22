@@ -18,17 +18,14 @@
 </div>
 
 <div>
-    <p th:text="'This is ' + ${name} + '. Currently living on salad and water. He knows 2 tricks.'"></p>
+    <p th:text="'This is ' + ${name} + '. Currently living on salad and water. He knows ' + ${numberoftricks} + ' tricks.'"></p>
 </div>
 
 <h1>Known tricks </h1>
 
 <ul>
-    <li>
-        <p>write html</p>
-    </li>
-    <li>
-        <p>code in java</p>
+    <p>
+    <p th:text="${numberoftricks == 0} ? 'Please teach your fox some tricks' : 'He knows some tricks'"></p>
     </li>
 </ul>
 
