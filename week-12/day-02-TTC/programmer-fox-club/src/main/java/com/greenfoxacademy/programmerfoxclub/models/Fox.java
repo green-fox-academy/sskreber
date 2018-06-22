@@ -14,10 +14,10 @@ public class Fox {
     private Food chosenFood;
     private Drink chosenDrink;
 
-    public List<Trick> learnedTricks;
-    public List<Trick> availableTricks;
-    public List<Food> availableFoods;
-    public List<Drink> availableDrinks;
+    public List<Trick> learnedTricks = new ArrayList<>();
+    public List<Trick> availableTricks = new ArrayList<>();
+    public List<Food> availableFoods = new ArrayList<>();
+    public List<Drink> availableDrinks = new ArrayList<>();
 
     private List<Fox> foxes;
 
@@ -65,10 +65,6 @@ public class Fox {
         return learnedTricks;
     }
 
-    public void setLearnedTricks(List<Trick> learnedTricks) {
-        this.learnedTricks = learnedTricks;
-    }
-
     public void learnNewTrick(Trick learnedTrick) {
         this.learnedTricks.add(learnedTrick);
         availableTricks.remove(learnedTrick);
@@ -79,9 +75,12 @@ public class Fox {
         this.name = name;
         this.numberOfTricks = 0;
         this.learnedTricks = new ArrayList<>();
+        this.fillAvailableDrinksList();
+        this.fillAvailableFoodsList();
+        this.fillAvailableTricksList();
     }
 
-    public void fillAvailableFoodList() {
+    public void fillAvailableFoodsList() {
         for (Food foodItem : Food.values()) {
             availableFoods.add(foodItem);
         }

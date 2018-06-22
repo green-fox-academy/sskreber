@@ -1,6 +1,7 @@
 package com.greenfoxacademy.programmerfoxclub;
 
 import com.greenfoxacademy.programmerfoxclub.models.Fox;
+import com.greenfoxacademy.programmerfoxclub.models.Trick;
 import com.greenfoxacademy.programmerfoxclub.repositories.FoxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +23,6 @@ public class ProgrammerFoxClubApplication implements CommandLineRunner {
         foxRepository.saveFox(new Fox("Bogyo"));
         foxRepository.saveFox(new Fox("Tiger"));
         foxRepository.saveFox(new Fox("Mr Green"));
-//        foxRepository.getFoxByName("Bogyo").addNewTrick(SURF);
-//        foxRepository.getFoxByName("Bogyo").addNewTrick(PLAY_CHESS);
+       foxRepository.getFoxByName("Bogyo").learnNewTrick(Trick.SURF);
     }
 }
