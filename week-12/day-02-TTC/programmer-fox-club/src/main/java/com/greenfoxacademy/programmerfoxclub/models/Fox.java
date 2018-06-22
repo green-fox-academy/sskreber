@@ -1,15 +1,23 @@
 package com.greenfoxacademy.programmerfoxclub.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static com.greenfoxacademy.programmerfoxclub.models.Food.*;
+import static com.greenfoxacademy.programmerfoxclub.models.Trick.*;
+import static com.greenfoxacademy.programmerfoxclub.models.Drink.*;
 
 public class Fox {
     private String name;
     private int numberOfTricks;
-    private String food;
-    private String drink;
+    private Food chosenFood;
+    private Drink chosenDrink;
 
     public List<Trick> learnedTricks;
+    public List<Trick> availableTricks;
+    public List<Food> availableFoods;
+    public List<Drink> availableDrinks;
 
     private List<Fox> foxes;
 
@@ -29,20 +37,28 @@ public class Fox {
         this.numberOfTricks = numberOfTricks;
     }
 
-    public String getFood() {
-        return food;
+    public Food getFood() {
+        return chosenFood;
     }
 
-    public void setFood(String food) {
-        this.food = food;
+    public void setFood(Food food) {
+        if (this.chosenFood != null) {
+            availableFoods.add(chosenFood);
+        }
+        this.chosenFood = food;
+        availableFoods.remove(food);
     }
 
-    public String getDrink() {
-        return drink;
+    public Drink getDrink() {
+        return chosenDrink;
     }
 
-    public void setDrink(String drink) {
-        this.drink = drink;
+    public void setDrink(Drink drink) {
+        if (this.chosenDrink != null) {
+            availableDrinks.add(chosenDrink);
+        }
+        this.chosenDrink = drink;
+        availableDrinks.remove(drink);
     }
 
     public List<Trick> getLearnedTricks() {
@@ -53,23 +69,33 @@ public class Fox {
         this.learnedTricks = learnedTricks;
     }
 
-    public void addNewTrick(Trick learnedTrick) {
+    public void learnNewTrick(Trick learnedTrick) {
         this.learnedTricks.add(learnedTrick);
+        availableTricks.remove(learnedTrick);
         numberOfTricks++;
-    }
-
-    public enum Trick {
-        WRITE_HTML,
-        CODE_JAVA,
-        PLAY_WANDERER,
-        SURF,
-        PLAY_CHESS,
-        WATCH_VINTAGE_MOVIES;
     }
 
     public Fox(String name) {
         this.name = name;
         this.numberOfTricks = 0;
         this.learnedTricks = new ArrayList<>();
+    }
+
+    public void fillAvailableFoodList() {
+        for (Food foodItem : Food.values()) {
+            availableFoods.add(foodItem);
+        }
+    }
+
+    public void fillAvailableTricksList() {
+        for (Trick trickItem : Trick.values()) {
+            availableTricks.add(trickItem);
+        }
+    }
+
+    public void fillAvailableDrinksList() {
+        for (Drink drinkItem : Drink.values()) {
+            availableDrinks.add(drinkItem);
+        }
     }
 }

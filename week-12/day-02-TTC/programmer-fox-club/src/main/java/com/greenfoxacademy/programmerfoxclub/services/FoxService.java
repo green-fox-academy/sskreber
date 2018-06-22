@@ -1,6 +1,7 @@
 package com.greenfoxacademy.programmerfoxclub.services;
 
 import com.greenfoxacademy.programmerfoxclub.models.Fox;
+import com.greenfoxacademy.programmerfoxclub.models.Trick;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 @Service
 public interface FoxService {
 
-    public List<Fox.Trick> getLearnedTricks(Fox fox);
+    public List<Trick> getLearnedTricks(Fox fox);
 
     public void saveFox(Fox fox);
 

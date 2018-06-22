@@ -1,6 +1,7 @@
 package com.greenfoxacademy.programmerfoxclub.services;
 
 import com.greenfoxacademy.programmerfoxclub.models.Fox;
+import com.greenfoxacademy.programmerfoxclub.models.Trick;
 import com.greenfoxacademy.programmerfoxclub.repositories.FoxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class FoxServiceImpl implements FoxService {
         this.foxRepository = foxRepository;
     }
 
-    public List<Fox.Trick> getLearnedTricks(Fox fox) {
+    public List<Trick> getLearnedTricks(Fox fox) {
         return fox.getLearnedTricks();
     }
 
