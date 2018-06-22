@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 import java.util.Optional;
 
 @Controller
@@ -46,7 +44,7 @@ public class TodoController {
     }
 
     @PostMapping("delete/{id}")
-    public String increaseBalanceOfAccount(@PathVariable(value = "id") long id) {
+    public String deleteTodo(@PathVariable(value = "id") long id) {
         todoService.deleteTodoById(id);
         return "redirect:/list";
     }
@@ -60,7 +58,7 @@ public class TodoController {
     }
 
     @PostMapping("update/{id}")
-    public String increaseBalanceOfAccount(@PathVariable(value = "id") long id,
+    public String updateTodo(@PathVariable(value = "id") long id,
                                            @ModelAttribute(value = "todoToUpdate") Todo todoToUpdate,
                                            @ModelAttribute(value = "title") String updatedTitle,
                                            @RequestParam(value = "isUrgent", required = false, defaultValue = "false") boolean updatedIsUrgent,

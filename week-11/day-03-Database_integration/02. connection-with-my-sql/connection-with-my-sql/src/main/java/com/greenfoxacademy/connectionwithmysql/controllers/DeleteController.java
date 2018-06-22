@@ -17,7 +17,7 @@ public class DeleteController {
     }
 
     @PostMapping("delete/{id}")
-    public String increaseBalanceOfAccount(@PathVariable(value = "id") long id) {
+    public String deleteTodo(@PathVariable(value = "id") long id) {
         todoRepository.deleteById(id);
         return "redirect:/list";
     }
