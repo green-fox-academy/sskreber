@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trick Center</title>
+</head>
+<body>
+
+<div>
+    <p th:text="'This is ' + ${fox.getName()} + '. Currently knows ' + ${fox.getNumberOfLearnedTricks()} + ' trick(s).'"></p>
+</div>
+
+<!--I gazed upon josanandi's repo to get a better understanding of the droplist form. Many mercies:)-->
+<div th:if="${fox.numberOfAvailableTricks != 0}">
+    <form name='trickcentre' action="#" th:action="@{/trickcentreupdate}" method='POST'>
+        <p> <input type="hidden" name="fox" th:value="${fox}"/></p>
+        <p> <input type="hidden" name="name" th:value="${name}"/></p>
+        <label for="newtrick">Chose a new trick for your pet to learn!</label>
+        <select id="newtrick" name="newtrick">
+            <option th:each="trick : ${fox.availableTricks}"
+                    th:value="${trick}"
+                    th:utext="${trick.getDescription()}"/>
+        </select>
+        <button th:type="submit" name="submit" value="submit ">Learn</button>
+    </form>
+</div>
+
+<div th:if="${fox.numberOfAvailableTricks == 0}">
+    <p>Congratulations! Your pet knows all the tricks there are in the world!</p>
+    <div>
+        <a th:href="@{'/?name=' + ${name}}">Back</a>
+    </div>
+</div>
+
+</body>
+</html>

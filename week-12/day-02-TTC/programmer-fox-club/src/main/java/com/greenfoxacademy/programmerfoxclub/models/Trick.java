@@ -7,6 +7,10 @@ public enum Trick {
     SURF("surfing"),
     PLAY_CHESS("playing chess"),
     UNDERSTAND_VINTAGE_MOVIES("understanding vintage movies"),
+    DISCUSS_NIETZSCHE("discussing Nietzsche"),
+    PYTHON("programing in Python"),
+    JUGGLE("juggle with fireballs"),
+    DEALER("selling orphan tears")
     ;
 
     private String description;

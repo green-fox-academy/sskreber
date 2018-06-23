@@ -14,7 +14,8 @@ public class Fox {
     private long id;
 
     private String name;
-    private int numberOfTricks;
+    private int numberOfLearnedTricks;
+    private int numberOfAvailableTricks;
     private Food chosenFood;
     private Drink chosenDrink;
 
@@ -50,12 +51,16 @@ public class Fox {
         this.name = name;
     }
 
-    public int getNumberOfTricks() {
-        return numberOfTricks;
+    public int getNumberOfLearnedTricks() {
+        return numberOfLearnedTricks;
+    }
+
+    public int getNumberOfAvailableTricks() {
+        return numberOfAvailableTricks;
     }
 
     public void setNumberOfTricks(int numberOfTricks) {
-        this.numberOfTricks = numberOfTricks;
+        this.numberOfLearnedTricks = numberOfTricks;
     }
 
     public Food getFood() {
@@ -89,14 +94,15 @@ public class Fox {
     public void learnNewTrick(Trick learnedTrick) {
         this.learnedTricks.add(learnedTrick);
         availableTricks.remove(learnedTrick);
-        numberOfTricks++;
+        numberOfLearnedTricks++;
+        numberOfAvailableTricks--;
     }
 
     public Fox(String name) {
         foxCounter++;
         this.id = foxCounter;
         this.name = name;
-        this.numberOfTricks = 0;
+        this.numberOfLearnedTricks = 0;
         this.learnedTricks = new ArrayList<>();
         this.chosenDrink = WATER;
         this.chosenFood = PIZZA;
@@ -114,6 +120,7 @@ public class Fox {
     public void fillAvailableTricksList() {
         for (Trick trickItem : Trick.values()) {
             availableTricks.add(trickItem);
+            numberOfAvailableTricks++;
         }
     }
 

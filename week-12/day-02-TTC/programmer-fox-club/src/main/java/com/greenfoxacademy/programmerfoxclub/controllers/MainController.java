@@ -27,7 +27,7 @@ public class MainController {
             Fox fox = foxService.getFoxByName(name);
             nameModel.addAttribute("name", name);
             nameModel.addAttribute("fox", fox);
-            nameModel.addAttribute("numberoftricks", fox.getNumberOfTricks());
+            nameModel.addAttribute("numberoflearnedtricks", fox.getNumberOfLearnedTricks());
             nameModel.addAttribute("food", fox.getFood());
             nameModel.addAttribute("drink", fox.getDrink());
 
