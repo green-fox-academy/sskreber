@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Find out what's wrong</title>
+</head>
+<body>
+<h1>User Database</h1>
+<h2>Add a new User</h2>
+<form action="#" th:action="@{/app}" th:object="${user}" method="post">
+
+    <div>
+        <label for="firstName">First name: </label>
+        <input type="text" id="firstName" name="firstName"/>
+    </div>
+    <div>
+        <label for="lastName">Last name: </label>
+        <input type="text" id="lastName" name="lastName"/>
+    </div>
+    <div>
+        <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+<h2>Existing users</h2>
+<table th:if="${not #lists.isEmpty(users)}">
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.firstName}"/>
+        <td th:text="${user.lastName}"/>
+    </tr>
+</table>
+</body>
+</html>
+
