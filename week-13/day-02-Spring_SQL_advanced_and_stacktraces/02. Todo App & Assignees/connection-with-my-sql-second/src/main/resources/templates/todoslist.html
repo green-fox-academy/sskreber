@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todos</title>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+
+<h1>Todos for today: </h1>
+
+<form action="#" th:action="@{/search/}" th:object="${todoActionToSearchFor}" method="post">
+    <div>
+        <label for="todoActionToSearchFor">Action to search by </label>
+        <input type="text" id="todoActionToSearchFor" name="todoActionToSearchFor"/>
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+<div>
+    <table style="width:50%; height:300px; font-size: large">
+        <tr style="background-color:sandybrown">
+            <th>id</th>
+            <th>action</th>
+            <th>date created</th>
+            <th>date modified</th>
+            <th>urgent</th>
+            <th>done</th>
+            <th>assignee name</th>
+            <th>assignee email</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <tr th:each="todo : ${todos}" th:align="center">
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.title}"></td>
+            <td th:text="${todo.dateOfCreation}"></td>
+            <td th:text="${todo.dateOfModification}"></td>
+            <td th:text="${todo.urgent}"></td>
+            <td th:text="${todo.done}"></td>
+            <td th:text="${todo.assignee.getName()}"></td>
+            <td th:text="${todo.assignee.getEmail()}"></td>
+            <td>
+                <form action="#" th:action="@{'/delete/'} + ${todo.id}" method="post">
+                    <input type="submit" value="delete"/>
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{'/edit/'} + ${todo.id}" method="get">
+                    <input type="submit" value="edit"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <a href="http://localhost:8080/todo/create">Create new todo</a>
+</div>
+
+</body>
+</html>
