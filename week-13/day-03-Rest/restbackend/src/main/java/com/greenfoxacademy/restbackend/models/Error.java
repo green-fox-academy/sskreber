@@ -1,5 +1,9 @@
 package com.greenfoxacademy.restbackend.models;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class Error {
     public String error;
 

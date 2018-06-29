@@ -14,12 +14,12 @@ public class DoublingController {
 
     @GetMapping(value = "/doubling")
     public Object doubleInputNumber(@RequestParam(value = "input", required = false) Integer input) {
-        if (input == null) {
-            error.setError("Please provide an input!");
-            return error;
-        } else {
+        if (input != null) {
             result.setResult(input, input * 2);
             return result;
+        } else {
+            error.setError("Please provide an input!");
+            return error;
         }
     }
 }
