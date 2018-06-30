@@ -1,33 +1,30 @@
 package com.greenfoxacademy.restbackend.services;
 
-import com.greenfoxacademy.restbackend.models.Appended;
+import com.greenfoxacademy.restbackend.models.*;
 import com.greenfoxacademy.restbackend.models.Error;
-import com.greenfoxacademy.restbackend.models.Message;
-import com.greenfoxacademy.restbackend.models.Until;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Service
 public class RestService {
 
     public Object showGreeting(String name, String title) {
-        Error error = new Error();
 
         if (name != null && title != null) {
             Message welcomeMessage = new Message();
             welcomeMessage.setWelcomeMessage("Oh, hi there " + name + ", my dear " + title + "!");
             return welcomeMessage;
         } else if (name == null) {
-            error.setError("Please provide a name!");
+            return returnSpecificError("Please provide a name!");
         } else if (title == null) {
-            error.setError("Please provide a title!");
+            return returnSpecificError("Please provide a title!");
         } else {
-            error.setError("Please provide a name and a title!");
+            return returnSpecificError("Please provide a name and a title!");
         }
-        return error;
     }
 
     public Object showAppendedWord(String wordToAppend) {
@@ -36,22 +33,55 @@ public class RestService {
         return appended;
     }
 
-    public Object doSomeMaths(Until until, String what) {
-        if (until == null) {
-            return new Error("Please provide a number!");
+    public Object doSomeMaths(Input inputUntilWhatNumber, String what) {
+
+        if (inputUntilWhatNumber.getUntil() == null) {
+            return returnSpecificError("Please provide a number!");
         }
 
+        Integer until = inputUntilWhatNumber.getUntil();
         List<Integer> numbersUntilInputNumber = new ArrayList<>();
-        for (int i = 1; i <= until.getUntil(); i++) {
+        for (int i = 1; i <= until; i++) {
             numbersUntilInputNumber.add(i);
         }
 
         if (what.equals("sum")) {
             return numbersUntilInputNumber.stream().mapToInt(Integer::intValue).sum();
         } else if (what.equals("factor")) {
-            return IntStream.rangeClosed(2, until.getUntil()).reduce(1, (x, y) -> x * y);
+            return IntStream.rangeClosed(2, until).reduce(1, (x, y) -> x * y);
         } else {
-            return new Error("Please provide an action!");
+            return returnSpecificError("Please provide an action!");
         }
+    }
+
+    public Object doInputOperationOnInputArray(String inputWhat, int[] inputNumbers) {
+        if (inputWhat != null && inputNumbers != null) {
+            List<Integer> numberList = new ArrayList<>();
+            for (int number : inputNumbers) {
+                numberList.add(number);
+            }
+            if (inputWhat.equals("sum")) {
+                return numberList.stream().mapToInt(Integer::intValue).sum();
+            } else if (inputWhat.equals("multiply")) {
+                return numberList.stream().reduce(1, (a, b) -> a * b);
+            } else if (inputWhat.equals("double")) {
+                return numberList.stream().mapToInt(i -> i * 2).boxed().collect(Collectors.toList());
+            }
+        }
+        return returnErrorToWrongInputOperationOrArray(inputWhat, inputNumbers);
+    }
+
+    public Object returnErrorToWrongInputOperationOrArray(String inputWhat, int[] inputNumbers) {
+        if (inputWhat != null && inputNumbers == null) {
+            return returnSpecificError("Please provide numbers to perform an operation on!");
+        } else if (inputWhat == null && inputNumbers != null) {
+            return returnSpecificError("Please provide what to do with the numbers!");
+        } else {
+            return returnSpecificError("Please provide a valid operation and numbers to perform it on!");
+        }
+    }
+
+    public Error returnSpecificError(String errorMessage) {
+        return new Error(errorMessage);
     }
 }

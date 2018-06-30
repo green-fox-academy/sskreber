@@ -1,7 +1,6 @@
 package com.greenfoxacademy.restbackend.controllers;
 
-import com.greenfoxacademy.restbackend.models.Error;
-import com.greenfoxacademy.restbackend.models.Until;
+import com.greenfoxacademy.restbackend.models.Input;
 import com.greenfoxacademy.restbackend.services.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +17,8 @@ public class DoUntilController {
 
     @PostMapping("/dountil/{what}")
     public Object doInputOperationUntilInputNumber(@PathVariable(value = "what") String action,
-                                                   @RequestBody(required = false) Until until) {
+                                                   @RequestBody(required = false) Input inputUntilWhatNumber) {
 
-        return restService.doSomeMaths(until, action);
+        return restService.doSomeMaths(inputUntilWhatNumber, action);
     }
 }
