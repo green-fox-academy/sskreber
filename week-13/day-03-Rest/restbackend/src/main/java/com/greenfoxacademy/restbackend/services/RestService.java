@@ -1,20 +1,18 @@
-package com.greenfoxacademy.restbackend.controllers;
+package com.greenfoxacademy.restbackend.services;
 
 import com.greenfoxacademy.restbackend.models.Error;
 import com.greenfoxacademy.restbackend.models.Message;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
-@RestController
-public class GreetController {
+@Service
+public class RestService {
 
-    Message welcomeMessage = new Message();
-    public Error error = new Error();
+    public Message message;
+    public Error error;
 
-    @GetMapping(value = "greeter")
-    public Object getGreeting(@RequestParam(value = "name", required = false) String name,
-                              @RequestParam(value = "title", required = false) String title) {
+    public Object showGreeting(String name, String title) {
+        Message welcomeMessage = new Message();
+        Error error = new Error();
 
         if (name != null && title != null) {
             welcomeMessage.setWelcomeMessage("Oh, hi there " + name + ", my dear " + title + "!");
