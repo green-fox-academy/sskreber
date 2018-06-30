@@ -1,5 +1,6 @@
 package com.greenfoxacademy.restbackend.services;
 
+import com.greenfoxacademy.restbackend.models.Appended;
 import com.greenfoxacademy.restbackend.models.Error;
 import com.greenfoxacademy.restbackend.models.Message;
 import org.springframework.stereotype.Service;
@@ -7,14 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class RestService {
 
-    public Message message;
-    public Error error;
-
     public Object showGreeting(String name, String title) {
-        Message welcomeMessage = new Message();
         Error error = new Error();
 
         if (name != null && title != null) {
+            Message welcomeMessage = new Message();
             welcomeMessage.setWelcomeMessage("Oh, hi there " + name + ", my dear " + title + "!");
             return welcomeMessage;
         } else if (name == null) {
@@ -25,5 +23,11 @@ public class RestService {
             error.setError("Please provide a name and a title!");
         }
         return error;
+    }
+
+    public Object showAppendedWord(String wordToAppend) {
+        Appended appended = new Appended();
+        appended.setAppended(wordToAppend + "a");
+        return appended;
     }
 }
