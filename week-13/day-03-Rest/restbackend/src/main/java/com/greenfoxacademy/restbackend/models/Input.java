@@ -11,12 +11,15 @@ public class Input {
     public int[] numbers;
     public Integer until;
 
+    public String text;
+
 
     public Input() {
     }
 
     public Input(String what) {
         this.what = what;
+        this.text = what;
     }
 
     public Input(int[] numbers) {
@@ -55,5 +58,13 @@ public class Input {
 
     public void setUntil(Integer until) {
         this.until = until;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

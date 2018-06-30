@@ -1,10 +1,12 @@
 package com.greenfoxacademy.restbackend.services;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.greenfoxacademy.restbackend.models.*;
 import com.greenfoxacademy.restbackend.models.Error;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -83,5 +85,35 @@ public class RestService {
 
     public Error returnSpecificError(String errorMessage) {
         return new Error(errorMessage);
+    }
+
+    public Object createYodaSpeak(String inputText) {
+        if (inputText != null) {
+            List<String> textToYodify = new ArrayList<>();
+            List<String> textYodified = new ArrayList<>();
+
+            String[] items = inputText.split("\\s+");
+            for (String word : items) {
+                textToYodify.add(word);
+                textYodified.add(word);
+            }
+
+            for (int i = 0; i < textToYodify.size() - 1; i++) {
+                if (i % 2 == 0) {
+                    textYodified.set(i + 1, textToYodify.get(i));
+                } else {
+                    textYodified.set(i - 1, textToYodify.get(i));
+                }
+            }
+            textYodified.add(textToYodify.get(textToYodify.size() - 1));
+            String textYodifiedFullSentence = "";
+            for (String word : textYodified) {
+                textYodifiedFullSentence += word + " ";
+            }
+
+            return textYodifiedFullSentence;
+        } else {
+            return returnSpecificError("Feed me some text you have to, padawan young you are. Hmmm.");
+        }
     }
 }
