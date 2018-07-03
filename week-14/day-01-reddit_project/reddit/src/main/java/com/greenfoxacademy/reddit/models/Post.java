@@ -12,10 +12,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Post {
 
     @Id
