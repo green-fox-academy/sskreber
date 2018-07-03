@@ -52,16 +52,6 @@ public class PostService implements GenericService<Post> {
         return postRepository.findByUrl(url);
     }
 
-    public void increaseVotesOfPost(Post post) {
-        post.setScore(post.getScore() + 1);
-        postRepository.save(post);
-    }
-
-    public void decreaseVotesOfPost(Post post) {
-        post.setScore(post.getScore() - 1);
-        postRepository.save(post);
-    }
-
     public void increaseVotesOfPostById(Long id) {
         Post post = postRepository.findById(id).get();
         post.setScore(post.getScore() + 1);
