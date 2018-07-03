@@ -80,4 +80,3 @@ public class Post {
         return timestamp;
     }
 }
-

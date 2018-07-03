@@ -3,10 +3,7 @@ package com.greenfoxacademy.reddit.controllers;
 import com.greenfoxacademy.reddit.models.Post;
 import com.greenfoxacademy.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PostController {
@@ -29,5 +26,9 @@ public class PostController {
         return postService.findItemById(post.getId());
     }
 
-
+    @PutMapping("/posts/{id}/upvote")
+    public Object upvotePost(@PathVariable(value = "id") Long id) {
+        postService.increaseVotesOfPostById(id);
+        return postService.findItemById(id);
+    }
 }
