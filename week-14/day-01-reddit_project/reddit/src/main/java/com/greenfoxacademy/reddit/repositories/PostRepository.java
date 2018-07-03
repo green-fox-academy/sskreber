@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface PostRepository extends CrudRepository<Post, Long> {
 
-    public Post findByTitle();
-    public Post findByUrl();
+    public Post findByTitle(String title);
+    public Post findByUrl(String url);
 }

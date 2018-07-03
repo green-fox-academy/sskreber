@@ -26,10 +26,10 @@ public class Post {
     public Post() {
     }
 
-    public Post(String title, String url, Timestamp timestamp, Long score) {
+    public Post(String title, String url, Long score) {
         this.title = title;
         this.url = url;
-        this.timestamp = timestamp;
+        this.timestamp = getTimestamp();
         this.score = score;
     }
 

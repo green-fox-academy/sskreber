@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PostService {
+public class PostService implements GenericService<Post> {
 
     PostRepository postRepository;
 
@@ -17,19 +17,38 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public List<Post> findAll() {
-     return (List<Post>)postRepository.findAll();
+    @Override
+    public void addItem(Post item) {
+        postRepository.save(item);
     }
 
-    public Post findById(Long id) {
+    @Override
+    public void deleteItem(Post item) {
+        postRepository.delete(item);
+    }
+
+    @Override
+    public void updateItem(Post item) {
+        postRepository.save(item);
+    }
+
+    @Override
+    public List<Post> findAllItems() {
+        return (List<Post>) postRepository.findAll();
+    }
+
+    @Override
+    public Post findItemById(Long id) {
         return postRepository.findById(id).get();
     }
 
-    public Post findByTitle(String title) {
-        return postRepository.findByTitle();
+    @Override
+    public Post findItemByTitle(String title) {
+        return postRepository.findByTitle(title);
     }
 
-    public Post findByUrlTitle(String url) {
-        return postRepository.findByUrl();
+    @Override
+    public Post findByUrl(String url) {
+        return postRepository.findByUrl(url);
     }
 }

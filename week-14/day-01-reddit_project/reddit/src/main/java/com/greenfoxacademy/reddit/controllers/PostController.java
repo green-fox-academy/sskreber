@@ -17,6 +17,6 @@ public class PostController {
 
     @GetMapping("/posts")
     public Object listPosts() {
-        return postService.findAll();
+        return postService.findAllItems();
     }
 }
