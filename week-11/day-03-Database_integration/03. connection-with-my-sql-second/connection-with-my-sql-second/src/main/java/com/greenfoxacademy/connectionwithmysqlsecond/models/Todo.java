@@ -1,9 +1,6 @@
 package com.greenfoxacademy.connectionwithmysqlsecond.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -12,13 +9,17 @@ public class Todo {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String title;
     private Boolean isUrgent;
     private Boolean isDone;
     private LocalDate dateOfCreation;
     private LocalDate dateOfModification;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "assignee_id")
+    public Assignee assignee;
 
     public Todo() {
     }
@@ -29,13 +30,24 @@ public class Todo {
         this.isDone = isDone;
         this.dateOfCreation = LocalDate.now();
         this.dateOfModification = LocalDate.now();
+        this.assignee = new Assignee("", "");
+
     }
 
-    public long getId() {
+    public Todo(String title, Boolean isUrgent, Boolean isDone, String assigneeName, String assigneeEmail) {
+        this.title = title;
+        this.isUrgent = isUrgent;
+        this.isDone = isDone;
+        this.dateOfCreation = LocalDate.now();
+        this.dateOfModification = LocalDate.now();
+        this.assignee = new Assignee(assigneeName, assigneeEmail);
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -55,6 +67,17 @@ public class Todo {
         isUrgent = urgent;
     }
 
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public Long getAssigneeId() {
+        return assignee.getId();
+    }
+
+    public void setAssignee(String assigneeName, String assigneeEmail) {
+        this.assignee = new Assignee(assigneeName, assigneeEmail);
+    }
 
     public Boolean getDone() {
         return isDone;
@@ -79,6 +102,5 @@ public class Todo {
     public void setDateOfModification(LocalDate dateOfModification) {
         this.dateOfModification = dateOfModification;
     }
-
 }
 

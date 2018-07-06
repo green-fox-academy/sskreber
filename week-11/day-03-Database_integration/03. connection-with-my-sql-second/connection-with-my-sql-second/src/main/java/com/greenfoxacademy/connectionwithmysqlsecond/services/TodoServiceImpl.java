@@ -4,10 +4,8 @@ import com.greenfoxacademy.connectionwithmysqlsecond.models.Todo;
 import com.greenfoxacademy.connectionwithmysqlsecond.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TodoServiceImpl implements TodoService {
@@ -19,45 +17,53 @@ public class TodoServiceImpl implements TodoService {
         this.todoRepository = todoRepository;
     }
 
-    public Optional<Todo> getTodoById(long id) {
-        return todoRepository.findById(id);
-    }
-
-    public List<Todo> getAllTodo() {
-        return (ArrayList<Todo>) todoRepository.findAll();
-    }
-
-    public List<Todo> getAllActiveTodo() {
-        return todoRepository.findTodoByIsDoneFalse();
-    }
-
-    public List<Todo> getAllDoneTodo() {
-        return todoRepository.findTodoByIsDoneTrue();
-    }
-
-    public List<Todo> getAllTodoByFinishedness(boolean isActive) {
-        if (isActive) {
-            return getAllActiveTodo();
-        } else {
-            return getAllDoneTodo();
-        }
-    }
-
-    public void saveTodo(Todo todo) {
-        todoRepository.save(todo);
+    @Override
+    public List<Todo> findAllTodo() {
+        return (List<Todo>) todoRepository.findAll();
     }
 
     @Override
-    public void deleteTodoById(long id) {
+    public List<Todo> findAllTodoByIsDone(boolean isDone) {
+        return (List<Todo>) todoRepository.findAllTodoByIsDone(isDone);
+    }
+
+    @Override
+    public Todo findTodoById(Long id) {
+        return todoRepository.findById(id).get();
+    }
+
+    @Override
+    public Todo findTodoByTitle(String title) {
+        return todoRepository.findTodoByTitle(title);
+    }
+
+    @Override
+    public Todo findTodoByDateOfCreation(LocalDate dateOfCreation) {
+        return findTodoByDateOfCreation(dateOfCreation);
+    }
+
+    @Override
+    public Todo findTodoByDateOfModification(LocalDate dateOfModification) {
+        return findTodoByDateOfModification(dateOfModification);
+    }
+
+    @Override
+    public void deleteTodoById(Long id) {
         todoRepository.deleteById(id);
     }
 
-    public boolean existsById(long id) {
-        return todoRepository.existsById(id);
+    @Override
+    public void deleteByTitle(String title) {
+        todoRepository.deleteByTitle(title);
     }
 
     @Override
-    public void deleteTodoByTitle(String title) {
-        todoRepository.deleteTodoByTitle(title);
+    public void saveTodo(Todo todoToSave) {
+        todoRepository.save(todoToSave);
+    }
+
+    @Override
+    public void updateTodo(Todo todoToSave) {
+        todoRepository.save(todoToSave);
     }
 }

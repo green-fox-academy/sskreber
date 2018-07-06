@@ -19,13 +19,13 @@ public class ConnectionWithMySqlSecondApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        todoRepository.save(new Todo("Start the day", true, true));
-        todoRepository.save(new Todo("Finish H2 workshop1", true, true));
-        todoRepository.save(new Todo("Finish JPA workshop2", true, true));
-        todoRepository.save(new Todo("Create a CRUD project", true, true));
-        todoRepository.save(new Todo("Learn Object Relational Mapping", true, false));
-        todoRepository.save(new Todo("Play with MySQL database", true, false));
-        todoRepository.save(new Todo("Lose temper", false, true));
+        todoRepository.save(new Todo("Start the day", true, true, "NameA", "anEmailAddress"));
+        todoRepository.save(new Todo("Finish H2 workshop1", true, true, "NameB", "anEmailAddress"));
+        todoRepository.save(new Todo("Finish JPA workshop2", true, true, "NameC", "anEmailAddress"));
+        todoRepository.save(new Todo("Create a CRUD project", true, true, "NameD", "anEmailAddress"));
+        todoRepository.save(new Todo("Learn Object Relational Mapping", true, false, "NameE", "anEmailAddress"));
+        todoRepository.save(new Todo("Play with MySQL database", true, false, "NameF", "anEmailAddress"));
+        todoRepository.save(new Todo("Lose temper", false, true, "NameG", "anEmailAddress"));
         todoRepository.save(new Todo("Finally chill a bit", false, false));
     }
 }

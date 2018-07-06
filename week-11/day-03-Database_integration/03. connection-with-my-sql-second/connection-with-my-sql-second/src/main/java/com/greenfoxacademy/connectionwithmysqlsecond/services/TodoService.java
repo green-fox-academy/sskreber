@@ -3,6 +3,7 @@ package com.greenfoxacademy.connectionwithmysqlsecond.services;
 import com.greenfoxacademy.connectionwithmysqlsecond.models.Todo;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -10,19 +11,24 @@ import java.util.Optional;
 @Service
 public interface TodoService {
 
-    Optional<Todo> getTodoById(long id);
+    public List<Todo> findAllTodo();
 
-    List<Todo> getAllTodo();
+    public List<Todo> findAllTodoByIsDone(boolean isDone);
 
-    List<Todo> getAllActiveTodo();
+    public Todo findTodoById(Long id);
 
-    List<Todo> getAllTodoByFinishedness(boolean isActive);
+    public Todo findTodoByTitle(String title);
 
-    void saveTodo(Todo todo);
+    public Todo findTodoByDateOfCreation(LocalDate dateOfCreation);
 
-    void deleteTodoById(long id);
+    public Todo findTodoByDateOfModification(LocalDate dateOfModification);
 
-    boolean existsById(long id);
+    public void deleteTodoById(Long id);
 
-    void deleteTodoByTitle(String title);
+    public void deleteByTitle(String title);
+
+    public void saveTodo(Todo todo);
+
+    public void updateTodo(Todo todoToSave);
+
 }

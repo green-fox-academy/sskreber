@@ -9,6 +9,16 @@
 
 <h1>Todos for today: </h1>
 
+<form action="#" th:action="@{/search/}" th:object="${todoActionToSearchFor}" method="post">
+    <div>
+        <label for="todoActionToSearchFor">Action to search by </label>
+        <input type="text" id="todoActionToSearchFor" name="todoActionToSearchFor"/>
+    </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
 <div>
     <table style="width:50%; height:300px; font-size: large">
         <tr style="background-color:sandybrown">
@@ -18,6 +28,10 @@
             <th>date modified</th>
             <th>urgent</th>
             <th>done</th>
+            <th>assignee name</th>
+            <th>assignee email</th>
+            <th>edit name</th>
+            <th>edit email</th>
             <th></th>
             <th></th>
         </tr>
@@ -29,14 +43,36 @@
             <td th:text="${todo.dateOfModification}"></td>
             <td th:text="${todo.urgent}"></td>
             <td th:text="${todo.done}"></td>
+            <td th:text="${todo.assignee.getName()}"></td>
             <td>
-                <form action="#" th:action="@{'/delete/'} + ${todo.id}" method="post">
-                    <input type="submit" value="delete"/>
+                <form action="#" th:action="@{'/deletename/'} + ${todo.getAssigneeId}" method="post">
+                    <input type="submit" value="deletename"/>
                 </form>
             </td>
             <td>
-                <form action="#" th:action="@{'/edit/'} + ${todo.id}" method="get">
-                    <input type="submit" value="edit"/>
+                <form action="#" th:action="@{'/editname/'} + ${todo.getAssigneeId}" method="post">
+                    <input type="submit" value="editname"/>
+                </form>
+            </td>
+            <td th:text="${todo.assignee.getEmail()}"></td>
+            <td>
+                <form action="#" th:action="@{'/deleteemail/'} + ${todo.getAssigneeId}" method="post">
+                    <input type="submit" value="deleteemail"/>
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{'/editemail/'} + ${todo.getAssigneeId}" method="post">
+                    <input type="submit" value="editemail"/>
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{'/deletetodo/'} + ${todo.id}" method="post">
+                    <input type="submit" value="deletetodo"/>
+                </form>
+            </td>
+            <td>
+                <form action="#" th:action="@{'/edittodo/'} + ${todo.id}" method="get">
+                    <input type="submit" value="edittodo"/>
                 </form>
             </td>
         </tr>
