@@ -27,7 +27,7 @@ public class GuardianControllerTest {
             Charset.forName("utf8"));
 
     @Test
-    public void getGrootMessageSuccesfully() throws Exception {
+    public void getGrootMessageSuccessfully() throws Exception {
         mockMvc.perform(get("/groot")
                 .contentType(contentType)
                 .param("message", "somemessage"))
@@ -35,5 +35,14 @@ public class GuardianControllerTest {
                 .andExpect(content().contentType(contentType))
                 .andExpect(jsonPath("$.received", is("somemessage")))
                 .andExpect(jsonPath("$.translated", is("I am Groot!")));
+    }
+
+    @Test
+    public void getGrootMessageUnsuccessfully() throws Exception {
+        mockMvc.perform(get("/groot")
+                .contentType(contentType))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.error", is("I am Groot!")));
     }
 }
