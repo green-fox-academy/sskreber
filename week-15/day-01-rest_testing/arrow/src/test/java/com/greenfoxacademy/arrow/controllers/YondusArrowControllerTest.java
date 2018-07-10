@@ -28,7 +28,7 @@ public class YondusArrowControllerTest {
             Charset.forName("utf8"));
 
     @Test
-    public void getSpeedUsingUserInputSuccessfully() throws Exception {
+    public void getSpeedUsingCorrectParameters() throws Exception {
         MultiValueMap<String, String> requestParams = new LinkedMultiValueMap<>();
         requestParams.add("distance", "100.0");
         requestParams.add("time", "10.0");
@@ -42,4 +42,6 @@ public class YondusArrowControllerTest {
                 .andExpect(jsonPath("$.time", is(10.0)))
                 .andExpect(jsonPath("$.speed", is(10.0)));
     }
+
+
 }
