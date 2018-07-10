@@ -43,5 +43,18 @@ public class YondusArrowControllerTest {
                 .andExpect(jsonPath("$.speed", is(10.0)));
     }
 
+    @Test
+    public void getSpeedHandlingDivisionByZero() throws Exception {
+        MultiValueMap<String, String> requestParams = new LinkedMultiValueMap<>();
+        requestParams.add("distance", "100.0");
+        requestParams.add("time", "0.0");
+
+        mockMvc.perform(get("/yondu")
+                .contentType(contentType)
+                .params(requestParams))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.error", is("Can't divide by zero. Maybe another time.")));
+    }
 
 }
