@@ -17,8 +17,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(YondusArrowController.class)
-public class YondusArrowControllerTest {
+@WebMvcTest(ArrowPathController.class)
+public class YondusArrowPathControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -57,4 +57,17 @@ public class YondusArrowControllerTest {
                 .andExpect(jsonPath("$.error", is("Can't divide by zero. Maybe another time.")));
     }
 
+    @Test
+    public void getSpeedUsingNoParameters() throws Exception {
+        MultiValueMap<String, String> requestParams = new LinkedMultiValueMap<>();
+        requestParams.add("distance", null);
+        requestParams.add("time", null);
+
+        mockMvc.perform(get("/yondu")
+                .contentType(contentType)
+                .params(requestParams))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(contentType))
+                .andExpect(jsonPath("$.error", is("No input given. Please enter distance and time.")));
+    }
 }

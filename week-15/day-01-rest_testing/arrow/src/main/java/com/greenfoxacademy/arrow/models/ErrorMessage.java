@@ -1,10 +1,9 @@
 package com.greenfoxacademy.arrow.models;
 
-import com.greenfoxacademy.arrow.controllers.YondusArrowController;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ErrorMessage extends YondusArrowControllerResponse {
+public class ErrorMessage extends ArrowPathControllerResponse {
 
     public String error;
 
