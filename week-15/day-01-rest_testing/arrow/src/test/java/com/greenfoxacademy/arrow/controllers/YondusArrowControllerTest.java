@@ -1,4 +1,4 @@
-package com.greenfoxacademy.iamgroot.controllers;
+package com.greenfoxacademy.arrow.controllers;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 import java.nio.charset.Charset;
 
@@ -15,8 +17,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(GuardianController.class)
-public class GuardianControllerTest {
+@WebMvcTest(YondusArrowController.class)
+public class YondusArrowControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -26,22 +28,18 @@ public class GuardianControllerTest {
             Charset.forName("utf8"));
 
     @Test
-    public void getGrootMessageSuccessfully() throws Exception {
-        mockMvc.perform(get("/groot")
+    public void getSpeedUsingUserInputSuccessfully() throws Exception {
+        MultiValueMap<String, String> requestParams = new LinkedMultiValueMap<>();
+        requestParams.add("distance", "100.0");
+        requestParams.add("time", "10.0");
+
+        mockMvc.perform(get("/yondu")
                 .contentType(contentType)
-                .param("message", "somemessage"))
+                .params(requestParams))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(contentType))
-                .andExpect(jsonPath("$.received", is("somemessage")))
-                .andExpect(jsonPath("$.translated", is("I am Groot!")));
-    }
-
-    @Test
-    public void getGrootMessageUnsuccessfully() throws Exception {
-        mockMvc.perform(get("/groot")
-                .contentType(contentType))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().contentType(contentType))
-                .andExpect(jsonPath("$.error", is("I am Groot!")));
+                .andExpect(jsonPath("$.distance", is(100.0)))
+                .andExpect(jsonPath("$.time", is(10.0)))
+                .andExpect(jsonPath("$.speed", is(10.0)));
     }
 }

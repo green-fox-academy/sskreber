@@ -4,7 +4,7 @@ import com.greenfoxacademy.arrow.controllers.YondusArrowController;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ErrorMessage extends YondusArrowController {
+public class ErrorMessage extends YondusArrowControllerResponse {
 
     public String error;
 

@@ -3,7 +3,7 @@ package com.greenfoxacademy.arrow.models;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Speed {
+public class Speed extends YondusArrowControllerResponse {
 
     public Double distance;
     public Double time;
