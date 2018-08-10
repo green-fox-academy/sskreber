@@ -17,11 +17,12 @@ public class Todo {
     private LocalDate dateOfCreation;
     private LocalDate dateOfModification;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "assignee_email")
     private Assignee assignee;
 
     public Todo() {
+        this.dateOfCreation = LocalDate.now();
     }
 
     public Todo(String title, Boolean isUrgent, Boolean isDone) {
@@ -30,7 +31,6 @@ public class Todo {
         this.isDone = isDone;
         this.dateOfCreation = LocalDate.now();
         this.dateOfModification = LocalDate.now();
-        this.assignee = new Assignee();
     }
 
     public Todo(String title, Boolean isUrgent, Boolean isDone, String assaigneeName, String assaigneeEmail) {
@@ -39,7 +39,6 @@ public class Todo {
         this.isDone = isDone;
         this.dateOfCreation = LocalDate.now();
         this.dateOfModification = LocalDate.now();
-        this.assignee = new Assignee(assaigneeName, assaigneeEmail);
     }
 
     public Long getId() {
@@ -58,27 +57,27 @@ public class Todo {
         this.title = title;
     }
 
-    public Boolean getUrgent() {
+    public Boolean getIsUrgent() {
         return isUrgent;
     }
 
-    public void setUrgent(Boolean urgent) {
+    public void setIsUrgent(Boolean urgent) {
         isUrgent = urgent;
     }
 
-    public Assignee getAssaignee() {
+    public Assignee getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(String assaigneeName, String assaigneeEmail) {
-        this.assignee = new Assignee(assaigneeName, assaigneeEmail);
+    public void setAssignee(String assigneeName, String assigneeEmail) {
+        this.assignee = new Assignee(assigneeName, assigneeEmail);
     }
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
+    public void setIsDone(Boolean done) {
         isDone = done;
     }
 

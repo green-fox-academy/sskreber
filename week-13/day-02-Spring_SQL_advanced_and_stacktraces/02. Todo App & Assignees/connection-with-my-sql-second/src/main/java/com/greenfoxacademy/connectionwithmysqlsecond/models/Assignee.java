@@ -1,21 +1,21 @@
 package com.greenfoxacademy.connectionwithmysqlsecond.models;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Assignee {
 
-    @OneToMany(mappedBy = "assignee", cascade = CascadeType.ALL)
-    List<Todo> todos = new ArrayList<>();
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String name;
-    @Id
     private String email;
+
+    @OneToMany(mappedBy = "assignee", cascade = CascadeType.ALL)
+    List<Todo> todos;
 
     public Assignee() {
         this.name = "no one";

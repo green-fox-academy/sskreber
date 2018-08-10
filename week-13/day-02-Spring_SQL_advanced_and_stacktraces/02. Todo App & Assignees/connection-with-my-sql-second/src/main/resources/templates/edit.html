@@ -10,15 +10,15 @@
 <form action="#" th:action="@{/update/} + ${id}" th:object="${todoToUpdate}" method="post">
     <div>
         <label for="title">Todo description </label>
-        <input type="text" id="title" name="title"/>
+        <input type="text" id="title" name="title" th:field="*{title}"/>
     </div>
     <div>
         <label for="isUrgent">Urgent </label>
-        <input type="checkbox" id="isUrgent" name="isUrgent"/>
+        <input type="checkbox" id="isUrgent" name="isUrgent" th:field="*{isUrgent}"/>
     </div>
     <div>
         <label for="isDone">Done </label>
-        <input type="checkbox" id="isDone" name="isDone"/>
+        <input type="checkbox" id="isDone" name="isDone" th:field="*{isDone}"/>
     </div>
     <div>
         <label for="assigneeName">Assignee's name </label>
