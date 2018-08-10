@@ -25,5 +25,7 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
     void deleteTodoByTitle(String title);
 
     Todo findTodoByTitle(String action);
+
+    List<Todo> findByTitleContaining(String title);
 }
 

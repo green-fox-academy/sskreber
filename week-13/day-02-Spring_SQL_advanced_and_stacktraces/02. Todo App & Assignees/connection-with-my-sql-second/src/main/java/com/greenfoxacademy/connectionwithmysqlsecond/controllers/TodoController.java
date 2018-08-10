@@ -22,15 +22,8 @@ public class TodoController {
     }
 
     @GetMapping(value = "/list")
-    public String listTodos(Model model,
-                            @RequestParam(value = "id", required = false) Long id) {
-        if (id != null) {
-            List<Todo> searchedTodo = new ArrayList<Todo>();
-            searchedTodo.add(todoService.getTodoById(id).get());
-            model.addAttribute("todos", searchedTodo);
-        } else {
-            model.addAttribute("todos", todoService.getAllTodo());
-        }
+    public String listTodos(Model model) {
+        model.addAttribute("todos", todoService.getAllTodo());
         return "todoslist";
     }
 
@@ -74,7 +67,7 @@ public class TodoController {
                              @RequestParam(value = "isUrgent", required = false, defaultValue = "false") boolean updatedIsUrgent,
                              @RequestParam(value = "isDone", required = false, defaultValue = "false") boolean updatedIsDone,
                              @RequestParam(value = "assigneeName") String assigneeName,
-                             @RequestParam(value = "assigneeEmail") String assigneeEmail){
+                             @RequestParam(value = "assigneeEmail") String assigneeEmail) {
         Todo updatedTodo = new Todo(updatedTitle, updatedIsUrgent, updatedIsDone, assigneeName, assigneeEmail);
 
         updatedTodo.setDateOfCreation(todoToUpdate.getDateOfCreation());
@@ -85,8 +78,8 @@ public class TodoController {
     }
 
     @PostMapping("/search")
-    public String searchForTodo(@RequestParam(value = "todoActionToSearchFor") String todoActionToSearchFor) {
-        Long id = todoService.getTodoByTitle(todoActionToSearchFor).getId();
-        return "redirect:/list/?id=" + id;
+    public String searchForTodo(@RequestParam(value = "todoActionToSearchFor") String todoActionToSearchFor, Model model) {
+        model.addAttribute("todos", todoService.findTodosByTitleContent(todoActionToSearchFor));
+        return "todoslist";
     }
 }

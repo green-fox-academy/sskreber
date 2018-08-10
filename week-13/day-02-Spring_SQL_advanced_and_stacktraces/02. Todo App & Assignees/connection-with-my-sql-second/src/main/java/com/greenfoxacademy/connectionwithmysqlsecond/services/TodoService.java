@@ -27,4 +27,6 @@ public interface TodoService {
     void deleteTodoByTitle(String title);
 
     Todo getTodoByTitle(String action);
+
+    public List<Todo> findTodosByTitleContent(String searchedContent);
 }

@@ -64,4 +64,8 @@ public class TodoServiceImpl implements TodoService {
     public Todo getTodoByTitle(String action){
         return todoRepository.findTodoByTitle(action);
     }
+
+    public List<Todo> findTodosByTitleContent(String searchedContent) {
+        return todoRepository.findByTitleContaining(searchedContent);
+    }
 }
