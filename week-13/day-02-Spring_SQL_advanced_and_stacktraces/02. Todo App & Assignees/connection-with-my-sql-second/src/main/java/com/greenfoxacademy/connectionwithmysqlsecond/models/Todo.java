@@ -33,14 +33,6 @@ public class Todo {
         this.dateOfModification = LocalDate.now();
     }
 
-    public Todo(String title, Boolean isUrgent, Boolean isDone, String assaigneeName, String assaigneeEmail) {
-        this.title = title;
-        this.isUrgent = isUrgent;
-        this.isDone = isDone;
-        this.dateOfCreation = LocalDate.now();
-        this.dateOfModification = LocalDate.now();
-    }
-
     public Long getId() {
         return id;
     }
@@ -69,8 +61,8 @@ public class Todo {
         return assignee;
     }
 
-    public void setAssignee(String assigneeName, String assigneeEmail) {
-        this.assignee = new Assignee(assigneeName, assigneeEmail);
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 
     public Boolean getIsDone() {

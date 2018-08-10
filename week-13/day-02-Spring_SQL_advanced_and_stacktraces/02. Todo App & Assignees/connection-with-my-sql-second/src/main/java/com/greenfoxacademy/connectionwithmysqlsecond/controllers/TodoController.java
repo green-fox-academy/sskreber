@@ -1,6 +1,8 @@
 package com.greenfoxacademy.connectionwithmysqlsecond.controllers;
 
+import com.greenfoxacademy.connectionwithmysqlsecond.models.Assignee;
 import com.greenfoxacademy.connectionwithmysqlsecond.models.Todo;
+import com.greenfoxacademy.connectionwithmysqlsecond.services.AssigneeService;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +17,12 @@ import java.util.Optional;
 public class TodoController {
 
     private TodoService todoService;
+    private AssigneeService assigneeService;
 
     @Autowired
-    public TodoController(TodoService todoService) {
+    public TodoController(TodoService todoService, AssigneeService assigneeService) {
         this.todoService = todoService;
+        this.assigneeService = assigneeService;
     }
 
     @GetMapping(value = "/list")
@@ -42,7 +46,7 @@ public class TodoController {
     public String submitNewTodo(@ModelAttribute(value = "title") String title,
                                 @RequestParam(value = "isUrgent", required = false, defaultValue = "false") boolean isUrgent,
                                 @RequestParam(value = "isDone", required = false, defaultValue = "false") boolean isDone) {
-            todoService.saveTodo(new Todo(title, isUrgent, isDone));
+        todoService.saveTodo(new Todo(title, isUrgent, isDone));
         return "redirect:/list";
     }
 
@@ -68,7 +72,10 @@ public class TodoController {
                              @RequestParam(value = "isDone", required = false, defaultValue = "false") boolean updatedIsDone,
                              @RequestParam(value = "assigneeName") String assigneeName,
                              @RequestParam(value = "assigneeEmail") String assigneeEmail) {
-        Todo updatedTodo = new Todo(updatedTitle, updatedIsUrgent, updatedIsDone, assigneeName, assigneeEmail);
+        Todo updatedTodo = new Todo(updatedTitle, updatedIsUrgent, updatedIsDone);
+        Assignee assignee = new Assignee(assigneeName, assigneeEmail);
+        assigneeService.save(assignee);
+        updatedTodo.setAssignee(assignee);
 
         updatedTodo.setDateOfCreation(todoToUpdate.getDateOfCreation());
         todoService.deleteTodoById(id);

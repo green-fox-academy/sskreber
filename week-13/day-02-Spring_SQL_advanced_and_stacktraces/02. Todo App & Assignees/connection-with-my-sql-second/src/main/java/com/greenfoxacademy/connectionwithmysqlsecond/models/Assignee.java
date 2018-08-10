@@ -18,8 +18,8 @@ public class Assignee {
     List<Todo> todos;
 
     public Assignee() {
-        this.name = "no one";
-        this.email = "no email provided";
+        this.name = " ";
+        this.email = "no email";
     }
 
     public Assignee(String name, String email) {

@@ -41,9 +41,9 @@
             <td th:text="${todo.dateOfModification}"></td>
             <td th:text="${todo.isUrgent}"></td>
             <td th:text="${todo.isDone}"></td>
-            <td th:if="*{todo.assignee != null}"><a th:href="@{/assignee/} + *{assignee.id}" th:text="*{todo.assignee.getName()}"></a></td>
+            <td th:if="*{todo.assignee != null}" th:text="*{todo.assignee.getName()}"></td>
             <td th:unless="*{todo.assignee != null}" th:text="''">..</td>
-            <td th:if="*{todo.assignee != null}"><a th:href="@{/assignee/} + *{assignee.id}" th:text="*{todo.assignee.getEmail()}"></a></td>
+            <td th:if="*{todo.assignee != null}" th:text="*{todo.assignee.getEmail()}"></td>
             <td th:unless="*{todo.assignee != null}" th:text="''">..</td>
             <td>
                 <form action="#" th:action="@{'/delete/'} + ${todo.id}" method="post">
