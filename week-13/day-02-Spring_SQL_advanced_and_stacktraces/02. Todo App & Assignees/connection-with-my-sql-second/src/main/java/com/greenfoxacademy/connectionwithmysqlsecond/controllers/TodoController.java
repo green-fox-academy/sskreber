@@ -40,9 +40,9 @@ public class TodoController {
 
     @PostMapping("submitnewtodo")
     public String submitNewTodo(@ModelAttribute(value = "title") String title,
-                                @ModelAttribute(value = "isUrgent") boolean isUrgent,
-                                @ModelAttribute(value = "isDone") boolean isDone) {
-        todoService.saveTodo(new Todo(title, isUrgent, isDone));
+                                @RequestParam(value = "isUrgent", required = false, defaultValue = "false") boolean isUrgent,
+                                @RequestParam(value = "isDone", required = false, defaultValue = "false") boolean isDone) {
+            todoService.saveTodo(new Todo(title, isUrgent, isDone));
         return "redirect:/list";
     }
 
