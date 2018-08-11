@@ -68,4 +68,9 @@ public class TodoServiceImpl implements TodoService {
     public List<Todo> findTodosByTitleContent(String searchedContent) {
         return todoRepository.findByTitleContaining(searchedContent);
     }
+
+    @Override
+    public void updateTodo(Todo todo) {
+        todoRepository.save(todo);
+    }
 }

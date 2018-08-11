@@ -86,7 +86,7 @@ public class Todo {
     }
 
     public void setDateOfModification(LocalDate dateOfModification) {
-        this.dateOfModification = dateOfModification;
+        this.dateOfModification = LocalDate.now();
     }
 }
 

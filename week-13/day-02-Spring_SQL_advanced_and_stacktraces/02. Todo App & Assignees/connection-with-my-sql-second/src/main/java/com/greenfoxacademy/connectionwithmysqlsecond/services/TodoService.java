@@ -29,4 +29,6 @@ public interface TodoService {
     Todo getTodoByTitle(String action);
 
     public List<Todo> findTodosByTitleContent(String searchedContent);
+
+    void updateTodo(Todo todo);
 }

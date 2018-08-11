@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -67,20 +68,18 @@ public class TodoController {
     @PostMapping("update/{id}")
     public String updateTodo(@PathVariable(value = "id") long id,
                              @ModelAttribute(value = "todoToUpdate") Todo todoToUpdate,
-                             @ModelAttribute(value = "title") String updatedTitle,
-                             @RequestParam(value = "isUrgent", required = false, defaultValue = "false") boolean updatedIsUrgent,
-                             @RequestParam(value = "isDone", required = false, defaultValue = "false") boolean updatedIsDone,
                              @RequestParam(value = "assigneeName") String assigneeName,
                              @RequestParam(value = "assigneeEmail") String assigneeEmail) {
-        Todo updatedTodo = new Todo(updatedTitle, updatedIsUrgent, updatedIsDone);
+
+        todoToUpdate.setId(id);
+        todoToUpdate.setDateOfModification(LocalDate.now());
+
         Assignee assignee = new Assignee(assigneeName, assigneeEmail);
         assigneeService.save(assignee);
-        updatedTodo.setAssignee(assignee);
+        todoToUpdate.setAssignee(assignee);
 
-        updatedTodo.setDateOfCreation(todoToUpdate.getDateOfCreation());
-        todoService.deleteTodoById(id);
-        updatedTodo.setId(id);
-        todoService.saveTodo(updatedTodo);
+        todoService.updateTodo(todoToUpdate);
+
         return "redirect:/list";
     }
 
