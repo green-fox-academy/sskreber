@@ -49,7 +49,5 @@ public class ConnectionWithMySqlSecondApplication implements CommandLineRunner {
         Todo myTodo = new Todo("Finally chill a bit", false, false);
         myTodo.setAssignee(meAsAssignee);
         todoRepository.save(myTodo);
-
-
     }
 }

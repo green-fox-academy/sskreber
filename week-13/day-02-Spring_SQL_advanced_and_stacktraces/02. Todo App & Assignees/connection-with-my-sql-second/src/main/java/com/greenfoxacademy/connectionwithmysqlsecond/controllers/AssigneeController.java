@@ -1,16 +1,13 @@
 package com.greenfoxacademy.connectionwithmysqlsecond.controllers;
 
 import com.greenfoxacademy.connectionwithmysqlsecond.models.Assignee;
-import com.greenfoxacademy.connectionwithmysqlsecond.models.Todo;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.AssigneeService;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.TodoService;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 @Controller
@@ -24,6 +21,7 @@ public class AssigneeController {
         this.todoService = todoService;
         this.assigneeService = assigneeService;
     }
+
     @GetMapping(value = "/assignees")
     public String listAssignees(Model model) {
         model.addAttribute("assignees", assigneeService.getAllAssignees());
@@ -37,7 +35,7 @@ public class AssigneeController {
 
     @PostMapping("submitnewassignee")
     public String submitNewAssignee(@ModelAttribute(value = "name") String name,
-                                @RequestParam(value = "email") String email) {
+                                    @RequestParam(value = "email") String email) {
         assigneeService.save(new Assignee(name, email));
         return "redirect:/assignees";
     }
