@@ -38,11 +38,18 @@ public class ConnectionWithMySqlSecondApplication implements CommandLineRunner {
         todoRepository.save(new Todo("Learn Object Relational Mapping", true, false));
         todoRepository.save(new Todo("Play with MySQL database", true, false));
         todoRepository.save(new Todo("Lose temper", false, true));
-        todoRepository.save(new Todo("Finally chill a bit", false, false));
 
         assigneeRepository.save(new Assignee("Eddie Izzard", "izzarde@gmail.com"));
-        assigneeRepository.save(new Assignee("Yours truly", "zsu.karap.coding@gmail.com"));
         assigneeRepository.save(new Assignee("Scar", "theblacklioninthefamily@gmail.com"));
         assigneeRepository.save(new Assignee("Voldemort", "ledarkwizard@gmail.com"));
+
+        Assignee meAsAssignee = new Assignee("Yours truly", "zsu.karap.coding@gmail.com");
+        assigneeRepository.save(meAsAssignee);
+
+        Todo myTodo = new Todo("Finally chill a bit", false, false);
+        myTodo.setAssignee(meAsAssignee);
+        todoRepository.save(myTodo);
+
+
     }
 }
