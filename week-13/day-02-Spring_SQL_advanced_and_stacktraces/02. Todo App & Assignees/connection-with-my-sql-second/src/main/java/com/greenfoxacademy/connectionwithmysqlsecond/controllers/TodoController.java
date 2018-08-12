@@ -4,6 +4,7 @@ import com.greenfoxacademy.connectionwithmysqlsecond.models.Assignee;
 import com.greenfoxacademy.connectionwithmysqlsecond.models.Todo;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.AssigneeService;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.TodoService;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,8 +44,11 @@ public class TodoController {
 
     @PostMapping("submitnewtodo")
     public String submitNewTodo(@ModelAttribute(value = "title") String title,
-                                @RequestParam(value = "isUrgent", required = false, defaultValue = "false") boolean isUrgent,
-                                @RequestParam(value = "isDone", required = false, defaultValue = "false") boolean isDone) {
+                                HttpServletRequest req) {
+
+        boolean isUrgent = Boolean.parseBoolean(req.getParameter("isUrgent"));
+        boolean isDone = Boolean.parseBoolean(req.getParameter("isDone"));
+
         todoService.saveTodo(new Todo(title, isUrgent, isDone));
         return "redirect:/list";
     }
@@ -57,24 +61,24 @@ public class TodoController {
 
     @GetMapping("todo/edit/{id}")
     public String edit(@PathVariable(value = "id") long id, Model todoToUpdateModel) {
+
         Optional<Todo> todoToUpdate = todoService.getTodoById(id);
         todoToUpdateModel.addAttribute("todoToUpdate", todoToUpdate.get());
         todoToUpdateModel.addAttribute("id", id);
+        todoToUpdateModel.addAttribute("assignees", assigneeService.getAllAssignees());
         return "todo-edit";
     }
 
     @PostMapping("todo/update/{id}")
     public String updateTodo(@PathVariable(value = "id") long id,
                              @ModelAttribute(value = "todoToUpdate") Todo todoToUpdate,
-                             @RequestParam(value = "assigneeName") String assigneeName,
-                             @RequestParam(value = "assigneeEmail") String assigneeEmail) {
+                             HttpServletRequest req) {
 
         todoToUpdate.setId(id);
         todoToUpdate.setDateOfModification(LocalDate.now());
 
-        Assignee assignee = new Assignee(assigneeName, assigneeEmail);
-        assigneeService.save(assignee);
-        todoToUpdate.setAssignee(assignee);
+        Optional<Assignee> chosenAssignee = assigneeService.getAssigneeById(Long.parseLong(req.getParameter("assignee")));
+        todoToUpdate.setAssignee(chosenAssignee.get());
 
         todoService.updateTodo(todoToUpdate);
         return "redirect:/list";

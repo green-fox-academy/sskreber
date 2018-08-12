@@ -20,13 +20,13 @@
         <label for="isDone">Done </label>
         <input type="checkbox" id="isDone" name="isDone" th:field="*{isDone}"/>
     </div>
+
     <div>
-        <label for="assigneeName">Assignee's name </label>
-        <input type="text" id="assigneeName" name="assigneeName"/>
-    </div>
-    <div>
-        <label for="assigneeEmail">Assignee's email </label>
-        <input type="text" id="assigneeEmail" name="assigneeEmail"/>
+        <td>Select assignee: </td>
+        <select name="assignee">
+            <option th:each="assignee:${assignees}" th:value="${assignee.id}"
+                    th:selected="${todoToUpdate.assignee} == ${assignee}" th:text="${assignee.name}"></option>
+        </select>
     </div>
     <div>
         <input type="submit" value="Submit">
