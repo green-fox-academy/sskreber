@@ -31,4 +31,6 @@ public interface TodoService {
     public List<Todo> findTodosByTitleContent(String searchedContent);
 
     void updateTodo(Todo todo);
+
+    List<Todo> findAllTodoByAssigneeName(String name);
 }

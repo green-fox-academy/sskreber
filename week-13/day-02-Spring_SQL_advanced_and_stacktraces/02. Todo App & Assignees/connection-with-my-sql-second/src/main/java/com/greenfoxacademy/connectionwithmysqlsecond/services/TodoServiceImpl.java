@@ -73,4 +73,9 @@ public class TodoServiceImpl implements TodoService {
     public void updateTodo(Todo todo) {
         todoRepository.save(todo);
     }
+
+    @Override
+    public List<Todo> findAllTodoByAssigneeName(String name) {
+        return todoRepository.findAllByAssigneeNameIgnoreCase(name);
+    }
 }
