@@ -1,10 +1,9 @@
 package com.greenfoxacademy.connectionwithmysqlsecond.models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "assignees")
 public class Assignee {
 
     @Id
@@ -25,6 +24,14 @@ public class Assignee {
     public Assignee(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

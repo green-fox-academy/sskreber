@@ -7,7 +7,7 @@
 
 <body>
 
-<form action="#" th:action="@{/update/} + ${id}" th:object="${todoToUpdate}" method="post">
+<form action="#" th:action="@{/todo/update/} + ${id}" th:object="${todoToUpdate}" method="post">
     <div>
         <label for="title">Todo description </label>
         <input type="text" id="title" name="title" th:field="*{title}"/>

@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -33,14 +31,14 @@ public class TodoController {
     }
 
     @RequestMapping(value = "/todo")
-    public String listActiveTodos(@RequestParam("isActive") boolean isActive, Model model) {
+    public String listActiveTodos(@RequestParam(value = "isActive", required = false, defaultValue = "true") boolean isActive, Model model) {
         model.addAttribute("todos", todoService.getAllTodoByFinishedness(isActive));
         return "todoslist";
     }
 
     @GetMapping("todo/create")
     public String createTodoPage() {
-        return "create";
+        return "create-todo";
     }
 
     @PostMapping("submitnewtodo")
@@ -51,21 +49,21 @@ public class TodoController {
         return "redirect:/list";
     }
 
-    @PostMapping("delete/{id}")
+    @PostMapping("todo/delete/{id}")
     public String deleteTodo(@PathVariable(value = "id") long id) {
         todoService.deleteTodoById(id);
         return "redirect:/list";
     }
 
-    @GetMapping("edit/{id}")
+    @GetMapping("todo/edit/{id}")
     public String edit(@PathVariable(value = "id") long id, Model todoToUpdateModel) {
         Optional<Todo> todoToUpdate = todoService.getTodoById(id);
         todoToUpdateModel.addAttribute("todoToUpdate", todoToUpdate.get());
         todoToUpdateModel.addAttribute("id", id);
-        return "edit";
+        return "todo-edit";
     }
 
-    @PostMapping("update/{id}")
+    @PostMapping("todo/update/{id}")
     public String updateTodo(@PathVariable(value = "id") long id,
                              @ModelAttribute(value = "todoToUpdate") Todo todoToUpdate,
                              @RequestParam(value = "assigneeName") String assigneeName,
@@ -79,7 +77,6 @@ public class TodoController {
         todoToUpdate.setAssignee(assignee);
 
         todoService.updateTodo(todoToUpdate);
-
         return "redirect:/list";
     }
 

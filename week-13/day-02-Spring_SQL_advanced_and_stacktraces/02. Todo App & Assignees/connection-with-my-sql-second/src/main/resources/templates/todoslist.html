@@ -46,12 +46,12 @@
             <td th:if="*{todo.assignee != null}" th:text="*{todo.assignee.getEmail()}"></td>
             <td th:unless="*{todo.assignee != null}" th:text="''">..</td>
             <td>
-                <form action="#" th:action="@{'/delete/'} + ${todo.id}" method="post">
+                <form action="#" th:action="@{'/todo/delete/'} + ${todo.id}" method="post">
                     <input type="submit" value="delete"/>
                 </form>
             </td>
             <td>
-                <form action="#" th:action="@{'/edit/'} + ${todo.id}" method="get">
+                <form action="#" th:action="@{'/todo/edit/'} + ${todo.id}" method="get">
                     <input type="submit" value="edit"/>
                 </form>
             </td>

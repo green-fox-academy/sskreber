@@ -3,8 +3,7 @@ package com.greenfoxacademy.connectionwithmysqlsecond.models;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "todos")
+@Entity(name = "todos")
 public class Todo {
 
     @Id
@@ -18,7 +17,7 @@ public class Todo {
     private LocalDate dateOfModification;
 
     @ManyToOne
-    @JoinColumn(name = "assignee_email")
+    @JoinColumn(name = "assignee_id")
     private Assignee assignee;
 
     public Todo() {
@@ -30,7 +29,14 @@ public class Todo {
         this.isUrgent = isUrgent;
         this.isDone = isDone;
         this.dateOfCreation = LocalDate.now();
-        this.dateOfModification = LocalDate.now();
+    }
+
+    public Todo(String title, Boolean isUrgent, Boolean isDone, Assignee assignee) {
+        this.title = title;
+        this.isUrgent = isUrgent;
+        this.isDone = isDone;
+        this.assignee = assignee;
+        this.dateOfCreation = LocalDate.now();
     }
 
     public Long getId() {
