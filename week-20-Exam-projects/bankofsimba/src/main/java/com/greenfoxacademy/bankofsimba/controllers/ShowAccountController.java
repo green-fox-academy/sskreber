@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class ShowAccountController {
 
     private BankAccountService bankAccountService;
-    public static boolean hasCreatedBaseAccounts = false;
 
     @Autowired
     public void setBankAccountService(BankAccountService bankAccountService) {
@@ -20,9 +19,8 @@ public class ShowAccountController {
 
     @GetMapping("accounts")
     public String getAllAccount(Model thymeLeafModel) {
-        if (!hasCreatedBaseAccounts) {
+        if (bankAccountService.getAllAccount().size() == 0) {
             bankAccountService.createAccount();
-            hasCreatedBaseAccounts = true;
         }
 
         thymeLeafModel.addAttribute("accounts", bankAccountService.getAllAccount());
@@ -35,4 +33,3 @@ public class ShowAccountController {
         return "redirect:/accounts";
     }
 }
-
