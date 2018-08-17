@@ -6,20 +6,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 public class BankAccount {
 
-
-    private boolean isKing;
-
     private String name;
     private double balance;
     private String animalType;
+    private boolean isKing;
 
     public BankAccount() {
     }
 
+    public BankAccount(String name, String animalType) {
+        this(name, 0, animalType);
+    }
+
     public BankAccount(String name, double balance, String animalType) {
-        this.name = name;
-        this.balance = balance;
-        this.animalType = animalType;
+        this(name, balance, animalType, false);
     }
 
     public BankAccount(String name, double balance, String animalType, boolean isKing) {

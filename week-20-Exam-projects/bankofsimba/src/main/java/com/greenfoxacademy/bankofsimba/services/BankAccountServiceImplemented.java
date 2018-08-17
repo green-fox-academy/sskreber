@@ -22,7 +22,7 @@ public class BankAccountServiceImplemented implements BankAccountService {
 
     @Override
     public void createDummyAccount() {
-        bankAccounts.add(new BankAccount("Sample Customer", 0, "sample animal", false));
+        bankAccounts.add(new BankAccount("Sample Customer", 0, "sample animal"));
     }
 
     @Override

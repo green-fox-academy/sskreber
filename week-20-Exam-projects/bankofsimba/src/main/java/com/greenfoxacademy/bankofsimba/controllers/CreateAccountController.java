@@ -4,10 +4,7 @@ import com.greenfoxacademy.bankofsimba.models.BankAccount;
 import com.greenfoxacademy.bankofsimba.services.BankAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CreateAccountController {
@@ -26,9 +23,9 @@ public class CreateAccountController {
 
     @PostMapping("submitnewaccount")
     public String submitNewAccount(@ModelAttribute(value = "name") String name,
-                                @ModelAttribute(value = "balance") Double balance,
-                                @ModelAttribute(value = "animalType") String animalType,
-                                @ModelAttribute(value = "isKing") Boolean isKing) {
+                                @RequestParam(value = "balance", required = false, defaultValue = "0.0") Double balance,
+                                @RequestParam(value = "animalType", required = false, defaultValue = "unknown") String animalType,
+                                @RequestParam(value = "isKing", required = false, defaultValue = "false") boolean isKing) {
         bankAccountService.add(new BankAccount(name, balance, animalType, isKing));
         return "redirect:/accounts";
     }
