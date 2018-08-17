@@ -7,12 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class AccountController {
+public class ShowAccountController {
 
     private final BankAccountService bankAccountService;
     public static boolean hasCreatedBaseAccounts = false;
 
-    public AccountController(BankAccountService bankAccountService) {
+    public ShowAccountController(BankAccountService bankAccountService) {
         this.bankAccountService = bankAccountService;
     }
 
