@@ -12,7 +12,7 @@ public interface BankAccountService { //az arraylist feltöltése lesz a dolga
 
     ArrayList<BankAccount> getAllAccount();
 
-    void createAccount();
+    void createDummyAccount();
 
     void increaseBalance(int index);
 }

@@ -20,7 +20,7 @@ public class ShowAccountController {
     @GetMapping("accounts")
     public String getAllAccount(Model thymeLeafModel) {
         if (bankAccountService.getAllAccount().size() == 0) {
-            bankAccountService.createAccount();
+            bankAccountService.createDummyAccount();
         }
 
         thymeLeafModel.addAttribute("accounts", bankAccountService.getAllAccount());

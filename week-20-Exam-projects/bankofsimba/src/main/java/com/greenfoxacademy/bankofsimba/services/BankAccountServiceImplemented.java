@@ -21,14 +21,8 @@ public class BankAccountServiceImplemented implements BankAccountService {
     }
 
     @Override
-    public void createAccount() {
-        bankAccounts.add(new BankAccount("Simba", 2000, "lion", true));
-        bankAccounts.add(new BankAccount("Zazu", 150, "kakadu"));
-        bankAccounts.add(new BankAccount("Scar", 10000, "lion"));
-        bankAccounts.add(new BankAccount("Nala", 1500, "lion"));
-        bankAccounts.add(new BankAccount("Sarabi", 1800, "lion"));
-        bankAccounts.add(new BankAccount("Shenzi", 200, "hyena"));
-        bankAccounts.add(new BankAccount("Banzai", 50, "hyena"));
+    public void createDummyAccount() {
+        bankAccounts.add(new BankAccount("Sample Customer", 0, "sample animal", false));
     }
 
     @Override
