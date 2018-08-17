@@ -5,7 +5,6 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<div>
 
     <table style="width:50%; height:300px; font-size: large">
         <tr style="background-color:sandybrown">
@@ -18,7 +17,7 @@
             <th>increase balance</th>
         </tr>
 
-        <tr th:each="currentAccount : ${accounts}" style="background-color:palegoldenrod" align="center">
+        <tr th:each="currentAccount : ${accounts}" style="background-color:palegoldenrod" align="center" th:object="${currentAccount}">
             <td th:style="${currentAccountStat.index % 2 == 0} ? 'background-color:yellow' : 'background-color:orange'"
                 th:text="${currentAccountStat.index}"></td>
             <td th:style="${currentAccountStat.index % 2 == 0} ? 'background-color:yellow' : 'background-color:orange'"
@@ -35,16 +34,13 @@
             <td th:style="${currentAccount.accountBelongsToBadGuy(currentAccount) == 'Bad Guy'} ? 'color:red' : 'color:black'"
                 th:text="${currentAccount.accountBelongsToBadGuy(currentAccount)}"></td>
 
-            <td th:style="${currentAccountStat.index % 2 == 0} ? 'background-color:yellow' : 'background-color:orange'">
-                <form action="#" th:action="@{/accounts}" method="post" th:name="currentAccount"
-                      th:value="${currentAccount}">
-                    <input type="submit" value="+">
-                    <!--<button type="submit" th:name="currentAccount" th:value="${currentAccount}">increase</button>-->
+            <td>
+                <form action="#" th:action="@{'/increasebalance/'} + ${currentAccountStat.index}" method="post">
+                    <input type="submit" value="Increase" />
                 </form>
             </td>
+        </tr>
     </table>
-
-</div>
 
 <form action="#" th:action="@{/createaccount}" method="post" align="center">
     <div>

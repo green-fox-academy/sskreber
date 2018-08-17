@@ -16,6 +16,7 @@ public class AccountController {
         this.bankAccountService = bankAccountService;
     }
 
+
     @GetMapping("accounts")
     public String getAllAccount(Model thymeLeafModel) {
         if (!hasCreatedBaseAccounts) {
@@ -27,9 +28,9 @@ public class AccountController {
         return "accounts";
     }
 
-    @PostMapping("accounts")
-    public String increaseBalanceOfAccount(@ModelAttribute(value = "index") BankAccount currentAccount) {
-        bankAccountService.increaseBalance(currentAccount);
+    @PostMapping("increasebalance/{index}")
+    public String increaseBalanceOfAccount(@PathVariable(value = "index") int index) {
+        bankAccountService.increaseBalance(index);
         return "redirect:/accounts";
     }
 }
