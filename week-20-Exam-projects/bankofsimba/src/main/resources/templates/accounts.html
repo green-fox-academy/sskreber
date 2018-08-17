@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Accounts</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div>
+
+    <table style="width:50%; height:300px; font-size: large">
+        <tr style="background-color:sandybrown">
+            <th>index</th>
+            <th>name</th>
+            <th>balance</th>
+            <th>animal type</th>
+            <th>royalty info</th>
+            <th>morality status</th>
+            <th>increase balance</th>
+        </tr>
+
+        <tr th:each="currentAccount : ${accounts}" style="background-color:palegoldenrod" align="center">
+            <td th:style="${currentAccountStat.index % 2 == 0} ? 'background-color:yellow' : 'background-color:orange'"
+                th:text="${currentAccountStat.index}"></td>
+            <td th:style="${currentAccountStat.index % 2 == 0} ? 'background-color:yellow' : 'background-color:orange'"
+                th:text="${currentAccount.name}"></td>
+
+            <td th:text="${currentAccount.balance} + ' Zebra'"></td>
+
+            <td th:style="${currentAccountStat.index % 2 == 0} ? 'background-color:yellow' : 'background-color:orange'"
+                th:text="${currentAccount.animalType}"></td>
+
+            <td th:style="${currentAccount.accountBelongsToKing(currentAccount) == 'king'} ? 'color:darkgoldenrod' : 'color:black'"
+                th:text="${currentAccount.accountBelongsToKing(currentAccount)}"></td>
+
+            <td th:style="${currentAccount.accountBelongsToBadGuy(currentAccount) == 'Bad Guy'} ? 'color:red' : 'color:black'"
+                th:text="${currentAccount.accountBelongsToBadGuy(currentAccount)}"></td>
+
+            <td th:style="${currentAccountStat.index % 2 == 0} ? 'background-color:yellow' : 'background-color:orange'">
+                <form action="#" th:action="@{/accounts}" method="post" th:name="currentAccount"
+                      th:value="${currentAccount}">
+                    <input type="submit" value="+">
+                    <!--<button type="submit" th:name="currentAccount" th:value="${currentAccount}">increase</button>-->
+                </form>
+            </td>
+    </table>
+
+</div>
+
+<form action="#" th:action="@{/createaccount}" method="post" align="center">
+    <div>
+        <input type="submit" value="Create a new account">
+    </div>
+</form>
+
+</body>
+</html>
+
