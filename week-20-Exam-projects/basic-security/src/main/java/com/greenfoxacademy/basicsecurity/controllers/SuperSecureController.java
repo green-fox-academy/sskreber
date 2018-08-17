@@ -9,7 +9,7 @@ public class SuperSecureController {
 
     @GetMapping("/")
     public String getMainPage() {
-        return "Main page";
+        return "Main page: literally anyone can access this. Well, congrats anyway.";
     }
 
     @Secured("ROLE_USER")
