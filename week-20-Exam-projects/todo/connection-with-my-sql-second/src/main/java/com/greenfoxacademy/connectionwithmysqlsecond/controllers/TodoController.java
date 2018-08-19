@@ -44,10 +44,8 @@ public class TodoController {
 
     @PostMapping("submitnewtodo")
     public String submitNewTodo(@ModelAttribute(value = "title") String title,
-                                HttpServletRequest req) {
-
-        boolean isUrgent = Boolean.parseBoolean(req.getParameter("isUrgent"));
-        boolean isDone = Boolean.parseBoolean(req.getParameter("isDone"));
+                                @RequestParam(value = "isUrgent", defaultValue = "false") boolean isUrgent,
+                                @RequestParam(value = "isDone", defaultValue = "false") boolean isDone) {
 
         todoService.saveTodo(new Todo(title, isUrgent, isDone));
         return "redirect:/list";
