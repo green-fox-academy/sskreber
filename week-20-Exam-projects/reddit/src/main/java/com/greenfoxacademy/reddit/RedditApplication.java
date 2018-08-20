@@ -21,5 +21,8 @@ public class RedditApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         postRepository.save(new Post("Dear JavaScript", "http://9gag.com", 791L));
         postRepository.save(new Post("Crockford", "http://9gag.com", 567L));
+        postRepository.save(new Post("Hello prog world", "http://9gag.com", 888L));
+        postRepository.save(new Post("Madame Butterknife", "http://9gag.com", 658L));
+        postRepository.save(new Post("ASS stands for Android Studio, Sweetie", "http://9gag.com", 995L));
     }
 }

@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Entity
 public class Post {
@@ -14,7 +15,7 @@ public class Post {
     private Long Id;
     private String title;
     private String url;
-    private Timestamp timestamp;
+    private LocalDate timestamp;
 
     private Long score;
 
@@ -24,14 +25,14 @@ public class Post {
     public Post(String title, String url) {
         this.title = title;
         this.url = url;
-        timestamp = createCurrentTimestamp();
+        timestamp = LocalDate.now();
         this.score = 0L;
     }
 
     public Post(String title, String url, Long score) {
         this.title = title;
         this.url = url;
-        timestamp = createCurrentTimestamp();
+        timestamp = LocalDate.now();
         this.score = score;
     }
 
@@ -59,11 +60,11 @@ public class Post {
         this.url = url;
     }
 
-    public Timestamp getTimestamp() {
+    public LocalDate getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(LocalDate timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -75,8 +76,4 @@ public class Post {
         this.score = score;
     }
 
-    private Timestamp createCurrentTimestamp() {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        return timestamp;
-    }
 }
