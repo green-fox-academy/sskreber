@@ -22,6 +22,10 @@ public class Post {
     public Post() {
     }
 
+    public Post(String title) {
+        this.title = title;
+    }
+
     public Post(String title, String url) {
         this.title = title;
         this.url = url;
