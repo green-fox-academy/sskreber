@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+
+<div>
+    <p th:text="${'Error occured at: ' + #dates.format(timestamp, 'dd. MM. yyyy, HH:mm')}"></p>
+    <p th:text="'Error type: ' + ${error}"></p>
+    <p th:text="'Error message: ' + ${message}"></p>
+    <p th:text="'The following url is invalid: ' + ${path}"></p>
+    <p th:text="'Status code: ' + ${status}"></p>
+</div>
+</body>
+</html>
