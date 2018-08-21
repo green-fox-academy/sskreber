@@ -9,6 +9,7 @@ import com.greenfoxacademy.connectionwithmysqlsecond.services.TodoService;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,20 +55,44 @@ public class TodoControllerTest {
 
     private List<Todo> mockTodos = new ArrayList<>(Arrays.asList(new Todo("This is a mock Todo", true, true)));
 
-    @Test
-    public void listTodos() throws Exception {
+    private MvcResult result;
+    private static final int TARGET_JASON_OBJECT_INDEX = 0;
+
+    @Before
+    public void setupRequest() {
         Mockito.when(
                 todoService.getAllTodo()).thenReturn(mockTodos);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/jsonlist")
                 .accept(MediaType.APPLICATION_JSON);
-        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        try {
+            result = mockMvc.perform(requestBuilder).andReturn();
+        } catch (Exception ex) {
+            System.out.println("Problem performing request");
+        }
+    }
+    @Test
+    public void listTodosCheckOKStatusCode() throws Exception {
 
         int expectedStatus = 200;
 
         System.out.println("result.getResponse.getString: " + result.getResponse().getContentAsString());
 
         assertEquals(expectedStatus, result.getResponse().getStatus());
+    }
+
+    @Test
+    public void listTodosCheckReceivedTodoField() throws Exception {
+
+        String expectedTodoTitle = "This is a mock Todo";
+
+        System.out.println("result.getResponse.getString: " + result.getResponse().getContentAsString());
+
+        JSONArray receivedJsonArray = new JSONArray(result.getResponse().getContentAsString());
+        JSONObject receivedJsonObject = new JSONObject(receivedJsonArray.getString(TARGET_JASON_OBJECT_INDEX));
+        String receivedTodoTitle = receivedJsonObject.getString("title");
+
+        assertEquals(expectedTodoTitle, receivedTodoTitle);
     }
 
     @Ignore
