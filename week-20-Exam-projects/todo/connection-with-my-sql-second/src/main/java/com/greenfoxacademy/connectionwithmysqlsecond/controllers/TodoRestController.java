@@ -5,9 +5,7 @@ import com.greenfoxacademy.connectionwithmysqlsecond.services.AssigneeService;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +29,14 @@ public class TodoRestController {
     @GetMapping(value = "/jsonlist/{name}")
     public List<Todo> listTodosByAssignee(@PathVariable(value = "name") String name) {
         return todoService.findAllTodoByAssigneeName(name);
+    }
+
+    @PostMapping("json/submitnewtodo")
+    public Todo submitNewTodo(@RequestParam(value = "title") String title,
+                              @RequestParam(value = "isUrgent", defaultValue = "false") boolean isUrgent,
+                              @RequestParam(value = "isDone", defaultValue = "false") boolean isDone) {
+        Todo todo = new Todo(title, isUrgent, isDone);
+        todoService.saveTodo(todo);
+        return todo;
     }
 }
