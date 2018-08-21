@@ -1,6 +1,5 @@
 package com.greenfoxacademy.connectionwithmysqlsecond.controllers;
 
-import com.greenfoxacademy.connectionwithmysqlsecond.models.Todo;
 import com.greenfoxacademy.connectionwithmysqlsecond.repositories.AssigneeRepository;
 import com.greenfoxacademy.connectionwithmysqlsecond.repositories.TodoRepository;
 import com.greenfoxacademy.connectionwithmysqlsecond.services.AssigneeService;
@@ -13,18 +12,14 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 import java.nio.charset.Charset;
-import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = TodoRestController.class, secure = false)
