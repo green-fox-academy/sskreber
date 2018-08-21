@@ -9,6 +9,7 @@ import com.greenfoxacademy.connectionwithmysqlsecond.services.TodoService;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -53,13 +54,15 @@ public class TodoControllerTest {
     @MockBean
     private AssigneeRepository assigneeRepository;
 
-    private List<Todo> mockTodos = new ArrayList<>(Arrays.asList(new Todo("This is a mock Todo", true, true)));
-
+    private List<Todo> mockTodos;
     private MvcResult result;
     private static final int TARGET_JASON_OBJECT_INDEX = 0;
 
     @Before
     public void setupRequest() {
+
+        mockTodos = new ArrayList<>(Arrays.asList(new Todo("This is a mock Todo", true, true)));
+
         Mockito.when(
                 todoService.getAllTodo()).thenReturn(mockTodos);
 
@@ -71,11 +74,18 @@ public class TodoControllerTest {
             System.out.println("Problem performing request");
         }
     }
+
+    @After
+    public void after() {
+        mockTodos = null;
+        result = null;
+    }
+
     @Test
     public void listTodosCheckOKStatusCode() throws Exception {
 
         System.out.println("result.getResponse.getString: " + result.getResponse().getContentAsString());
-        
+
         int expectedStatus = 200;
         assertEquals(expectedStatus, result.getResponse().getStatus());
     }
