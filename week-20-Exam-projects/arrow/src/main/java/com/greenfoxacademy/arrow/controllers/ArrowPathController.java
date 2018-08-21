@@ -12,7 +12,7 @@ public class ArrowPathController {
 
     @GetMapping("/yondu")
     public ResponseEntity<ArrowPathControllerResponse> getSpeedUsingUserInput(@RequestParam(value = "distance", required = false) Double distance,
-                                                                      @RequestParam(value = "time", required = false) Double time) {
+                                                                              @RequestParam(value = "time", required = false) Double time) {
 
         if (distance == null || time == null) {
             return new ResponseEntity(new ErrorMessage("No input given. Please enter distance and time."), HttpStatus.BAD_REQUEST);

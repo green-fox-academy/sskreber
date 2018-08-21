@@ -21,6 +21,10 @@ public class GuardianControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    // We'd have this IF we had a service in the application:
+//    @MockBean
+//    private GuardianService guardianService;
+
     private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
             MediaType.APPLICATION_JSON.getSubtype(),
             Charset.forName("utf8"));
