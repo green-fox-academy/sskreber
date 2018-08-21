@@ -74,7 +74,7 @@ public class TodoRestControllerGetTest {
     @Before
     public void setupRequest() {
 
-        mockTodos = new ArrayList<>(Arrays.asList(new Todo("This is a mock Todo", true, true)));
+        mockTodos = new ArrayList<>(Arrays.asList(new Todo("This is a mock Todo", true, false)));
 
         Mockito.when(
                 todoService.getAllTodo()).thenReturn(mockTodos);
@@ -131,5 +131,11 @@ public class TodoRestControllerGetTest {
     public void listTodosCheckReceivedTodoIsUrgentField() throws Exception {
         boolean receivedTodoIsUrgent= receivedJsonObject.getBoolean("isUrgent");
         assertTrue(receivedTodoIsUrgent);
+    }
+
+    @Test
+    public void listTodosCheckReceivedTodoIsDoneField() throws Exception {
+        boolean receivedTodoIsDone= receivedJsonObject.getBoolean("isDone");
+        assertFalse(receivedTodoIsDone);
     }
 }
