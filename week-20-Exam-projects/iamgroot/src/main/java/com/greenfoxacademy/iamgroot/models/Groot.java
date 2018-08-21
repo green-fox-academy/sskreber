@@ -11,8 +11,8 @@ public class Groot extends GuardianControllerResponse{
     public Groot() {
     }
 
-    public Groot(String receieved, String translated) {
-        this.received = receieved;
+    public Groot(String received, String translated) {
+        this.received = received;
         this.translated = translated;
     }
 
