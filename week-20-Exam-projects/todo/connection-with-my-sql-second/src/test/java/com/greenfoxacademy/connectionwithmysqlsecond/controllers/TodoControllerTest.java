@@ -74,10 +74,9 @@ public class TodoControllerTest {
     @Test
     public void listTodosCheckOKStatusCode() throws Exception {
 
-        int expectedStatus = 200;
-
         System.out.println("result.getResponse.getString: " + result.getResponse().getContentAsString());
-
+        
+        int expectedStatus = 200;
         assertEquals(expectedStatus, result.getResponse().getStatus());
     }
 
@@ -85,8 +84,6 @@ public class TodoControllerTest {
     public void listTodosCheckReceivedTodoField() throws Exception {
 
         String expectedTodoTitle = "This is a mock Todo";
-
-        System.out.println("result.getResponse.getString: " + result.getResponse().getContentAsString());
 
         JSONArray receivedJsonArray = new JSONArray(result.getResponse().getContentAsString());
         JSONObject receivedJsonObject = new JSONObject(receivedJsonArray.getString(TARGET_JASON_OBJECT_INDEX));
