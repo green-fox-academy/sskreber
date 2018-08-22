@@ -2,7 +2,6 @@ package com.greenfoxacademy.basicsecurity.controllers;
 
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -10,7 +9,7 @@ public class SuperSecureController {
 
     @GetMapping("/")
     public String getMainPage() {
-        return "Main page: literally anyone can access this. Well, congrats anyway.";
+        return "Literally anyone with a name and password can access this. Well, congrats anyway.";
     }
 
     @Secured("ROLE_USER")
