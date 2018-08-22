@@ -32,10 +32,7 @@ public class TodoRestController {
     }
 
     @PostMapping("json/submitnewtodo")
-    public Todo submitNewTodoViaPostman(@RequestParam(value = "title") String title,
-                              @RequestParam(value = "isUrgent", defaultValue = "false") boolean isUrgent,
-                              @RequestParam(value = "isDone", defaultValue = "false") boolean isDone) {
-        Todo todo = new Todo(title, isUrgent, isDone);
+    public Todo submitNewTodoViaPostman(@RequestBody Todo todo) {
         todoService.saveTodo(todo);
         return todo;
     }

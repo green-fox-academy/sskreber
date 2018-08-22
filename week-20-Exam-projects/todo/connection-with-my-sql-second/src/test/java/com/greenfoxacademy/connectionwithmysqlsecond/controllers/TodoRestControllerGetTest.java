@@ -74,7 +74,6 @@ public class TodoRestControllerGetTest {
         extractTargetResponseJsonObject();
     }
 
-
     public void extractTargetResponseJsonObject() {
         try {
             receivedJsonArray = new JSONArray(result.getResponse().getContentAsString());
