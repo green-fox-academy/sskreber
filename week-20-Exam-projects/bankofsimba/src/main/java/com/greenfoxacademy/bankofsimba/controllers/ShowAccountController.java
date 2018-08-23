@@ -31,6 +31,7 @@ public class ShowAccountController {
     @PostMapping("increasebalance/{index}")
     public String increaseBalanceOfAccount(@PathVariable(value = "index") int index) {
         bankAccountService.increaseBalance(index);
+        System.out.println("Balance increased");
         return "redirect:/accounts";
     }
 }
